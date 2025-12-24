@@ -102,52 +102,64 @@
         </div>
     </section>
 
-    <section id="residences" class="py-20 bg-brand-dark text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">Live Availability</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="bg-gray-800 rounded-2xl overflow-hidden group transition">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="room-view-1.jpg" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded uppercase">Available</span>
+   <section id="founder" class="py-20 bg-brand-dark text-white overflow-hidden">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            
+            <div class="relative w-full max-w-sm lg:w-1/3 group" data-aos="fade-right">
+                <div class="absolute inset-0 bg-teal-500 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+                
+                <img src="founder.jpg" alt="Liju Vijayan" class="relative z-10 w-full rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 object-cover aspect-[3/4]">
+                
+                <div class="absolute -bottom-6 -right-6 z-20 bg-teal-500 p-5 rounded-xl hidden md:block shadow-xl">
+                    <p class="text-2xl font-bold leading-none">V</p>
+                    <p class="text-[7px] uppercase tracking-widest mt-1 font-black">Vijaya Exports</p>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 space-y-6" data-aos="fade-left">
+                <div class="space-y-2 text-center lg:text-left">
+                    <span class="text-teal-400 font-bold tracking-[0.2em] uppercase text-xs">Our Visionary Founder</span>
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif leading-tight">Liju Vijayan</h2>
+                    <p class="text-gray-400 text-sm uppercase tracking-widest font-medium">Managing Director, Vijaya Exports & Founder, Urumika</p>
+                </div>
+                
+                <div class="h-1 w-20 bg-teal-500 rounded-full mx-auto lg:mx-0"></div>
+
+                <div class="space-y-4 text-gray-300 leading-relaxed max-w-2xl text-center lg:text-left">
+                    <p>
+                        A distinguished entrepreneur based in Ernakulam, Liju Vijayan brings a legacy of management excellence to the residential sector. As the strategic force behind <strong>Vijaya Exports</strong>—headquartered in Ernakulam with expanding operations in Pondicherry—he has established a reputation for international trade reliability and business ethics.
+                    </p>
+                    <p>
+                        Through Urumika, Liju translates this corporate discipline into a personal, "caring and understanding" environment for working women and students. He personally ensures the residence maintains its <strong>5.0-star standards</strong> of security and homely comfort in the heart of Kakkanad.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                    <div class="flex items-center gap-3 bg-white/5 px-5 py-3 rounded-full border border-white/10">
+                        <i class="fas fa-building text-teal-400"></i>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider">HO: Ernakulam</span>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Double Sharing</h3>
-                        <p class="text-gray-400 text-sm mb-4">Spacious • Attached Bath</p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-xl font-bold">₹7,500/mo</span>
-                            <button onclick="toggleModal()" class="text-teal-400 font-bold">Book Now →</button>
-                        </div>
+                    <div class="flex items-center gap-3 bg-white/5 px-5 py-3 rounded-full border border-white/10">
+                        <i class="fas fa-globe text-teal-400"></i>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider">Pondicherry Div.</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 px-5 py-3 rounded-full border border-white/10">
+                        <i class="fas fa-envelope text-teal-400"></i>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider">lijuvijayanind@gmail.com</span>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-2xl overflow-hidden group transition">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="room-view-2.jpg" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded uppercase">1 Spot Left</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Triple Sharing</h3>
-                        <p class="text-gray-400 text-sm mb-4">Economical • Social</p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-xl font-bold">₹6,500/mo</span>
-                            <button onclick="toggleModal()" class="text-teal-400 font-bold">Book Now →</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white text-brand-dark rounded-2xl p-8 text-center flex flex-col items-center">
-                    <img src="founder.jpg" class="w-24 h-24 rounded-full border-4 border-teal-500 mb-4 shadow-lg object-cover">
-                    <h3 class="text-xl font-bold">Liju Vijayan</h3>
-                    <p class="text-teal-600 font-medium text-sm mb-2">Founder & Manager</p>
-                    <p class="text-xs text-gray-400 italic mb-4">Cheliparambil House, Thevakkal</p>
-                    <p class="text-gray-500 text-sm mb-6">"Reach out to me directly for a secure, hassle-free environment."</p>
-                    <a href="https://wa.me/917907280664" class="bg-teal-500 text-white w-full py-3 rounded-lg font-bold flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Founder
+
+                <div class="pt-6 text-center lg:text-left">
+                    <a href="tel:+917907280664" class="inline-flex items-center gap-3 bg-teal-500 text-white px-10 py-4 rounded-xl font-bold hover:bg-teal-600 transition shadow-2xl shadow-teal-500/20 uppercase tracking-widest text-xs">
+                        <i class="fas fa-phone-alt"></i> Connect Personally
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
 
+        </div>
+    </div>
+</section>
     <section id="location" class="py-20 bg-gray-50 border-t border-gray-100">
         <div class="container mx-auto px-4 md:px-8 text-center lg:text-left">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
@@ -231,3 +243,4 @@
     </script>
 </body>
 </html>
+
