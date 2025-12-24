@@ -1,37 +1,116 @@
-<section id="rules" class="rules-section">
-    <div class="container" data-aos="fade-up">
-        <h2 class="section-title">House Rules & Resident Conduct</h2>
-        <div class="rules-grid">
-            <div class="rule-category">
-                <h4><i class="fas fa-clock"></i> Safety & Timings</h4>
-                <ul>
-                    <li>While we offer flexible gate timings, residents returning after 10:00 PM are requested to inform the warden for security purposes[cite: 93, 100].</li>
-                    <li>Visitors are allowed in the common areas/sit-out only between 10:00 AM and 7:00 PM[cite: 43].</li>
-                    <li>Male visitors are strictly not permitted inside the rooms at any time[cite: 65, 100].</li>
-                </ul>
-            </div>
-            <div class="rule-category">
-                <h4><i class="fas fa-broom"></i> Hygiene & Maintenance</h4>
-                <ul>
-                    <li>Residents are responsible for the cleanliness of their own rooms and wardrobes[cite: 90, 93].</li>
-                    <li>Self-cleaning facilities in the kitchen must be used responsibly[cite: 93].</li>
-                    <li>Waste should be segregated and disposed of in designated bins only.</li>
-                </ul>
-            </div>
-            <div class="rule-category">
-                <h4><i class="fas fa-bolt"></i> Electricity & Assets</h4>
-                <ul>
-                    <li>Switch off all fans, lights, and appliances when leaving the room.</li>
-                    <li>Any damage to hostel property (beds, cupboards, furniture) will be charged to the resident[cite: 39, 41].</li>
-                    <li>High-power appliances like induction stoves or heaters are not permitted in rooms.</li>
-                </ul>
-            </div>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urumika Residences | Premium Housing Kochi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: { teal: { 500: '#00B5B5', 600: '#009E9E' }, brand: { dark: '#1C1C1C' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <header class="sticky top-0 z-50 bg-white shadow-sm h-16 md:h-20 flex items-center">
+        <div class="container mx-auto px-4 flex justify-between items-center w-full">
+            <a href="index.html" class="text-2xl font-bold text-teal-500 tracking-tighter">URUMIKA<span class="text-brand-dark">.living</span></a>
+            
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-600 items-center">
+                <a href="#journey" class="hover:text-teal-500">Our Story</a>
+                <a href="rules.html" class="hover:text-teal-500">House Rules</a>
+                <a href="terms.html" class="hover:text-teal-500">Terms</a>
+                <button onclick="toggleModal()" class="bg-teal-500 text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition shadow-lg">Reserve Now</button>
+            </nav>
+
+            <button onclick="toggleMenu()" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
         </div>
         
-        <div class="founder-signature" data-aos="zoom-in">
-            <p>Managed for your comfort and security,</p>
-            <h4 class="signature-text">Liju Vijayan</h4>
-            <p>Founder, Urumika PG [cite: 114]</p>
+        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white border-t p-4 shadow-lg md:hidden">
+            <a href="#journey" class="block py-3 border-b">Our Story</a>
+            <a href="rules.html" class="block py-3 border-b">House Rules</a>
+            <a href="terms.html" class="block py-3 border-b">Terms & Conditions</a>
+            <button onclick="toggleModal()" class="w-full mt-4 bg-teal-500 text-white py-3 rounded-lg font-bold">Reserve Now</button>
+        </div>
+    </header>
+
+    <section class="relative h-[500px] md:h-[80vh] flex items-center justify-center text-white text-center px-4">
+        <div class="absolute inset-0 z-0">
+            <img src="img23.jpg" class="w-full h-full object-cover brightness-50">
+        </div>
+        <div class="relative z-10 max-w-3xl">
+            <span class="bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded uppercase mb-4 inline-block">Premium Ladies Housing</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Second Home in <span class="text-teal-400">Kakkanad</span></h1>
+            [cite_start]<p class="text-lg md:text-xl text-gray-200 mb-8">Inspired by the journey of creating better living spaces since 2017[cite: 806].</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button onclick="toggleModal()" class="bg-teal-500 px-8 py-3 rounded-lg font-bold hover:bg-teal-600 transition">Book a Visit</button>
+                <a href="tel:07907280664" class="bg-white text-brand-dark px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">Call Founder</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">The Urumika Journey</h2>
+                <div class="h-1 w-16 bg-teal-500 mx-auto mt-4 rounded"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition">
+                    <div class="text-4xl text-teal-500 mb-4"><i class="fas fa-history"></i></div>
+                    <h3 class="text-xl font-bold mb-2">The Why</h3>
+                    <p class="text-gray-600 text-sm">"We didn't find it for us, so we created it for you." [cite_start]Moving away from crammed hostels to premium living spaces[cite: 794, 797].</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition">
+                    <div class="text-4xl text-teal-500 mb-4"><i class="fas fa-bed"></i></div>
+                    <h3 class="text-xl font-bold mb-2">The What</h3>
+                    [cite_start]<p class="text-gray-600 text-sm">Growing from humble beginnings to a network of beds across 24+ cities, now bringing that standard to Kochi[cite: 809, 814].</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition">
+                    <div class="text-4xl text-teal-500 mb-4"><i class="fas fa-users"></i></div>
+                    <h3 class="text-xl font-bold mb-2">The How</h3>
+                    <p class="text-gray-600 text-sm">Managed by people who have been in your shoes. [cite_start]We understand you and are inspired by you[cite: 798].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-teal-500 mb-4">URUMIKA.living</h2>
+            <div class="flex justify-center gap-6 mb-8 text-sm text-gray-400">
+                <a href="rules.html" class="hover:text-white">House Rules</a>
+                <a href="terms.html" class="hover:text-white">Terms & Conditions</a>
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+            </div>
+            <p class="text-xs text-gray-500">&copy; 2025 Urumika PG. | [cite_start]Images for representation purposes only[cite: 585].</p>
+        </div>
+    </footer>
+
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md p-6 rounded-2xl shadow-2xl relative">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-2">Unlock Special Discount</h3>
+            <p class="text-xs text-gray-500 mb-4">Pay a nominal fee to reserve your spot. [cite_start]Fully refundable if you don't onboard[cite: 530, 532].</p>
+            <form action="mailto:lijuvijayanind@gmail.com" class="space-y-3">
+                <input type="text" placeholder="Full Name" class="w-full border p-3 rounded-lg text-sm bg-gray-50">
+                <input type="tel" placeholder="Mobile Number" class="w-full border p-3 rounded-lg text-sm bg-gray-50">
+                <button class="w-full bg-teal-500 text-white font-bold py-3 rounded-lg hover:bg-teal-600">Reserve Now</button>
+            </form>
         </div>
     </div>
-</section>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+        function toggleModal() { document.getElementById('booking-modal').classList.toggle('hidden'); }
+    </script>
+</body>
+</html>
