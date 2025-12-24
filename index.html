@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URUMIKA | Premier Ladies Residence Kakkanad</title>
+    <title>URUMIKA | Executive Ladies Residence Kochi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Prata&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
@@ -13,175 +13,179 @@
             theme: {
                 extend: {
                     fontFamily: { 
-                        sans: ['Poppins', 'sans-serif',
-                        serif: ['Playfair Display', 'serif'
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Prata', 'serif'] 
                     },
-                    colors: {
-                        teal: { 500: '#00B5B5', 600: '#009E9E' },
-                        brand: { dark: '#1C1C1C', yellow: '#FFD700' }
+                    colors: { 
+                        gold: '#D4AF37',
+                        teal: { 500: '#00B5B5', 600: '#008F8F' },
+                        midnight: '#0A0F14'
                     }
                 }
             }
         }
     </script>
+    <style>
+        .hero-overlay { background: linear-gradient(75deg, rgba(10, 15, 20, 0.95) 0%, rgba(10, 15, 20, 0.7) 50%, transparent 100%); }
+        .text-glow { text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+        .v-badge-vertical { writing-mode: vertical-rl; text-orientation: mixed; }
+        .glass-nav { background: rgba(10, 15, 20, 0.8); backdrop-filter: blur(15px); }
+    </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50">
+<body class="font-sans bg-midnight text-white antialiased overflow-x-hidden">
 
-    <header class="sticky top-0 z-50 bg-white shadow-sm h-16 md:h-20 flex items-center">
-        <div class="container mx-auto px-4 flex justify-between items-center w-full">
+    <header class="fixed top-0 w-full z-50 glass-nav h-20 flex items-center border-b border-white/5">
+        <div class="container mx-auto px-8 flex justify-between items-center">
             <div class="flex flex-col">
-                <a href="index.html" class="text-2xl font-bold text-teal-500 tracking-tighter leading-none uppercase">URUMIKA</a>
-                <span class="text-[10px font-bold text-gray-400 tracking-[0.1em uppercase mt-1">Secure Living for Women</span>
+                <a href="index.html" class="text-2xl font-extrabold tracking-tighter uppercase text-white leading-none">URUMIKA</a>
+                <span class="text-[9px] font-bold text-gold tracking-[0.4em] uppercase mt-1">Premier Ladies Residence</span>
             </div>
-            
-            <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-600 items-center">
-                <a href="#journey" class="hover:text-teal-500 transition">Our Story</a>
-                <a href="#residences" class="hover:text-teal-500 transition">Residences</a>
-                <a href="#founder" class="hover:text-teal-500 transition">The Founder</a>
-                <button onclick="toggleModal()" class="bg-teal-500 text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition shadow-lg">Reserve Now</button>
+            <nav class="hidden lg:flex gap-10 text-[10px] font-bold tracking-[0.3em] uppercase items-center">
+                <a href="#journey" class="hover:text-gold transition-all">Our Story</a>
+                <a href="#residences" class="hover:text-gold transition-all">Residences</a>
+                <a href="#founder" class="hover:text-gold transition-all">The Founder</a>
+                <button onclick="toggleModal()" class="border border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-midnight transition-all">Reserve Now</button>
             </nav>
-
-            <button onclick="toggleMenu()" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
-        </div>
-        
-        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white border-t p-4 shadow-lg md:hidden">
-            <a href="#journey" class="block py-3 border-b border-gray-100 text-gray-600" onclick="toggleMenu()">Our Story</a>
-            <a href="#residences" class="block py-3 border-b border-gray-100 text-gray-600" onclick="toggleMenu()">Residences</a>
-            <a href="#founder" class="block py-3 border-b border-gray-100 text-gray-600" onclick="toggleMenu()">The Founder</a>
-            <button onclick="toggleModal()" class="w-full mt-4 bg-teal-500 text-white py-3 rounded-lg font-bold">Reserve Now</button>
+            <button onclick="toggleMenu()" class="lg:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <section class="relative h-[550px md:h-[80vh flex items-center justify-center text-white text-center px-4">
-       <div class="absolute -bottom-8 -right-8 z-20 bg-teal-500 p-6 rounded-2xl hidden md:block shadow-2xl text-white border-4 border-white">
-    <p class="text-4xl font-bold leading-none">V</p>
-    <p class="text-[10px] uppercase tracking-[0.2em] mt-2 font-black whitespace-nowrap">Vijaya Exports</p>
-</div>
+    <div id="mobile-menu" class="fixed inset-0 bg-midnight z-[60] hidden flex flex-col items-center justify-center space-y-8">
+        <button onclick="toggleMenu()" class="absolute top-8 right-8 text-white text-2xl"><i class="fas fa-times"></i></button>
+        <a href="#journey" class="text-xl uppercase tracking-widest" onclick="toggleMenu()">Our Story</a>
+        <a href="#residences" class="text-xl uppercase tracking-widest" onclick="toggleMenu()">Residences</a>
+        <a href="#founder" class="text-xl uppercase tracking-widest" onclick="toggleMenu()">The Founder</a>
+        <button onclick="toggleModal()" class="bg-gold text-midnight px-8 py-3 rounded-full font-bold">Reserve Now</button>
+    </div>
+
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="img23.jpg" class="w-full h-full object-cover opacity-50" alt="Kochi Cityscape">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
         
-        <div class="relative z-10 max-w-3xl">
-            <span class="bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded uppercase mb-4 inline-block tracking-wide">Premium Ladies Housing</span>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Your Second Home in <span class="text-teal-400">Kakkanad</span></h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-xl mx-auto">A professionally managed residence designed for women who value safety and corporate standards.</p>
-            
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <button onclick="toggleModal()" class="bg-teal-500 px-10 py-4 rounded-xl font-bold hover:bg-teal-600 transition shadow-2xl shadow-teal-500/30">Book a Visit</button>
-                <a href="tel:+917907280664" class="bg-white text-teal-600 px-10 py-4 rounded-xl font-bold hover:bg-gray-100 transition flex items-center gap-2">
-                    <i class="fas fa-phone-alt"></i> Call Founder
+        <div class="container mx-auto px-8 relative z-10">
+            <span class="text-gold font-bold tracking-[0.5em] uppercase text-[11px] mb-6 block">Kakkanad • Link Valley</span>
+            <h1 class="text-6xl md:text-8xl font-serif mb-8 leading-tight">Elite Living for <br><span class="italic text-glow">Executive Women.</span></h1>
+            <p class="max-w-xl text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-12">
+                A professionally managed residence designed for women who value safety, luxury, and corporate standards. Just 1.5km from Infopark.
+            </p>
+            <div class="flex flex-wrap gap-6">
+                <button onclick="toggleModal()" class="bg-gold text-midnight px-12 py-5 font-bold uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-2xl">Book Your Suite</button>
+                <a href="tel:+917907280664" class="flex items-center gap-4 px-10 py-5 border border-white/20 hover:bg-white/5 transition-all text-xs font-bold uppercase tracking-widest">
+                    <i class="fas fa-phone-alt text-gold"></i> Call Founder
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="journey" class="py-20 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-brand-dark mb-4">The Urumika Journey</h2>
-            <p class="text-gray-500 mb-16 italic text-sm">"We didn't find it for us, so we created it for you."</p>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl transition">
-                    <i class="fas fa-question text-teal-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">The Why</h3>
-                    <p class="text-gray-600 text-sm">Working women in Kochi need security and flexibility without strict hostel hassles. </p>
+    <section id="journey" class="py-32 bg-[#0E1318]">
+        <div class="container mx-auto px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif mb-4">The Urumika Journey</h2>
+            <p class="text-gold uppercase tracking-[0.3em] text-[10px] font-bold mb-20 italic">"We didn't find it for us, so we created it for you."</p>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="p-10 border border-white/5 bg-midnight rounded-2xl hover:border-gold/50 transition-all group">
+                    <i class="fas fa-question text-gold text-3xl mb-6 block"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">The Why</h3>
+                    <p class="text-gray-500 leading-relaxed text-sm">Working women in Kochi need security and flexibility without strict hostel hassles.</p>
                 </div>
-                <div class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl transition">
-                    <i class="fas fa-home text-teal-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">The What</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">A premium residence in Link Valley offering clean, spacious rooms and homely food. </p>
+                <div class="p-10 border border-white/5 bg-midnight rounded-2xl hover:border-gold/50 transition-all group">
+                    <i class="fas fa-home text-gold text-3xl mb-6 block"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">The What</h3>
+                    <p class="text-gray-500 leading-relaxed text-sm">A premium residence in Link Valley offering clean, spacious rooms and homely food.</p>
                 </div>
-                <div class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl transition">
-                    <i class="fas fa-heart text-teal-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">The How</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Managed personally with an "understanding and caring" approach. </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="residences" class="py-20 bg-brand-dark text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">Live Availability</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-                <div class="bg-gray-800 rounded-2xl overflow-hidden group transition">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="room-view-1.jpg" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded uppercase">Available</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1 uppercase">Double Sharing</h3>
-                        <p class="text-gray-400 text-sm mb-4">Spacious • Attached Bath • Fully Furnished</p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-xl font-bold">₹7,500/mo</span>
-                            <button onclick="toggleModal()" class="text-teal-400 font-bold uppercase tracking-widest text-xs">Book Now →</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-800 rounded-2xl overflow-hidden group transition">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="room-view-2.jpg" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-widest">1 Spot Left</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1 uppercase">Triple Sharing</h3>
-                        <p class="text-gray-400 text-sm mb-4">Economical • Secure • High Speed Wi-Fi</p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-xl font-bold">₹6,500/mo</span>
-                            <button onclick="toggleModal()" class="text-teal-400 font-bold uppercase tracking-widest text-xs">Book Now →</button>
-                        </div>
-                    </div>
+                <div class="p-10 border border-white/5 bg-midnight rounded-2xl hover:border-gold/50 transition-all group">
+                    <i class="fas fa-heart text-gold text-3xl mb-6 block"></i>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">The How</h3>
+                    <p class="text-gray-500 leading-relaxed text-sm">Managed personally with an understanding and caring approach that prioritizes your peace of mind.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-dark">Our Premier Spaces</h2>
-                <p class="text-gray-500 mt-2 italic text-sm">Experience the comfort of Urumika</p>
+    <section id="residences" class="py-32">
+        <div class="container mx-auto px-8">
+            <div class="flex flex-col items-center mb-24">
+                <h2 class="text-5xl font-serif mb-4">Live Availability</h2>
+                <div class="w-20 h-1 bg-gold"></div>
             </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                <div class="group bg-[#0E1318] border border-white/5 shadow-2xl">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="room-view-1.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <span class="absolute top-8 right-8 bg-teal-500 text-white px-4 py-1 text-[10px] font-black uppercase tracking-widest">Available</span>
+                    </div>
+                    <div class="p-12">
+                        <h4 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Double Sharing Executive</h4>
+                        <p class="text-gray-500 mb-8 font-light italic text-sm">Spacious, attached bath, and fully furnished for professional comfort.</p>
+                        <div class="flex justify-between items-center border-t border-white/5 pt-8">
+                            <p class="text-4xl font-serif text-gold">₹7,500<span class="text-xs font-sans text-gray-500">/mo</span></p>
+                            <button onclick="toggleModal()" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-gold transition-colors">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="group bg-[#0E1318] border border-white/5 shadow-2xl">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="room-view-2.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-8 right-8 bg-red-600 text-white px-4 py-1 text-[10px] font-black uppercase tracking-widest">1 Spot Left</div>
+                    </div>
+                    <div class="p-12">
+                        <h4 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Triple Sharing Premium</h4>
+                        <p class="text-gray-500 mb-8 font-light italic text-sm">Economical yet secure with high-speed Wi-Fi and premium furnishings.</p>
+                        <div class="flex justify-between items-center border-t border-white/5 pt-8">
+                            <p class="text-4xl font-serif text-gold">₹6,500<span class="text-xs font-sans text-gray-500">/mo</span></p>
+                            <button onclick="toggleModal()" class="text-[10px] font-black uppercase tracking-[0.3em] hover:text-gold transition-colors">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-32 bg-white text-midnight">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif mb-4">Our Premier Spaces</h2>
+                <p class="text-gray-500 italic uppercase tracking-widest text-[10px]">Experience the comfort of Urumika</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="relative h-64 overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="img23.jpg" alt="Exterior" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="relative h-64 overflow-hidden rounded-xl shadow-lg group">
+                    <img src="img23.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-bold uppercase tracking-widest text-xs">Main Entrance</span>
                     </div>
                 </div>
-
-                <div class="relative h-64 overflow-hidden rounded-2xl shadow-xl bg-teal-500 flex items-center justify-center group cursor-pointer border-4 border-white">
+                <div class="relative h-64 overflow-hidden rounded-xl shadow-xl bg-teal-500 flex items-center justify-center group cursor-pointer border-4 border-white">
                     <a href="#" target="_blank" class="z-20 text-center px-4">
-                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-play text-teal-500 text-2xl ml-1"></i>
                         </div>
-                        <h3 class="text-white font-bold text-lg leading-none">Virtual Video Tour</h3>
-                        <p class="text-teal-100 text-[10px uppercase tracking-widest mt-2">Add Your Link Later</p>
+                        <h3 class="text-white font-bold text-lg leading-none uppercase tracking-tighter">Virtual Tour</h3>
+                        <p class="text-teal-100 text-[8px] uppercase tracking-widest mt-2">Available Soon</p>
                     </a>
-                    <div class="absolute inset-0 z-10 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops)) from-white via-transparent to-transparent"></div>
                 </div>
-
-                <div class="relative h-64 overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="room-view-1.jpg" alt="Bedroom" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="relative h-64 overflow-hidden rounded-xl shadow-lg group">
+                    <img src="rooms.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-bold uppercase tracking-widest text-xs">Premium Rooms</span>
+                        <span class="text-white font-bold uppercase tracking-widest text-xs">Executive Rooms</span>
                     </div>
                 </div>
-
-                <div class="relative h-64 overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="kitchen.jpg" alt="Kitchen" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="relative h-64 overflow-hidden rounded-xl shadow-lg group">
+                    <img src="kitchen.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-bold uppercase tracking-widest text-xs">Homely Dining</span>
                     </div>
                 </div>
-
-                <div class="relative h-64 overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="balcony.jpg" alt="Balcony" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="relative h-64 overflow-hidden rounded-xl shadow-lg group">
+                    <img src="balcony.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-bold uppercase tracking-widest text-xs">Relaxation Zone</span>
                     </div>
                 </div>
-
-                <div class="relative h-64 overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="hallway.jpg" alt="Hallway" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div class="relative h-64 overflow-hidden rounded-xl shadow-lg group">
+                    <img src="hallway.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="text-white font-bold uppercase tracking-widest text-xs">Secure Hallways</span>
                     </div>
@@ -189,42 +193,29 @@
             </div>
         </div>
     </section>
-    ```
 
-### Why place it here?
-This placement follows a logical "Sales Path":
-1.  **The Story:** You introduce the "Journey" and the "Why".
-2.  **The Visuals:** You show the actual property and the Video Tour to build immediate trust.
-3.  **The Booking:** You show the "Live Availability" and the price to close the sale.
-
-This flow mirrors the premium user experience found on professional sites like Stanza Living.
-    <section id="founder" class="py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 md:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="relative w-full max-w-sm lg:w-1/3 group">
-                    <div class="absolute inset-0 bg-teal-500 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-                    <img src="founder.jpg" alt="Liju Vijayan" class="relative z-10 w-full rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 object-cover aspect-[3/4">
-                    <div class="absolute -bottom-6 -right-6 z-20 bg-teal-500 p-5 rounded-xl hidden md:block shadow-xl text-white">
-                        <p class="text-2xl font-bold leading-none">V</p>
-                        <p class="text-[7px uppercase tracking-widest mt-1 font-black">Vijaya Exports</p>
+    <section id="founder" class="py-32 bg-[#0E1318] border-y border-white/5">
+        <div class="container mx-auto px-8">
+            <div class="grid lg:grid-cols-12 gap-20 items-center">
+                <div class="lg:col-span-5 relative">
+                    <div class="absolute -inset-4 border border-gold/30 rounded-lg"></div>
+                    <img src="founder.jpg" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 aspect-[3/4] object-cover" alt="Liju Vijayan">
+                    <div class="absolute top-0 right-0 bg-gold text-midnight px-4 py-16 v-badge-vertical font-black tracking-[0.6em] text-[10px] z-20">
+                        VIJAYA EXPORTS
                     </div>
                 </div>
-
-                <div class="lg:w-2/3 space-y-6">
-                    <div class="space-y-2 text-center lg:text-left">
-                        <span class="text-teal-500 font-bold tracking-[0.2em uppercase text-xs">Visionary Leadership</span>
-                        <h2 class="text-4xl md:text-5xl font-bold font-serif leading-tight">Liju Vijayan</h2>
-                        <p class="text-teal-600 text-lg md:text-xl uppercase tracking-wider font-bold italic">
-    CEO, Vijaya Exports <span class="text-gray-400 font-medium mx-2">|</span> Founder, Urumika
-</p>
+                <div class="lg:col-span-7">
+                    <span class="text-gold font-bold tracking-[0.2em] uppercase text-xs">Visionary Leadership</span>
+                    <h2 class="text-5xl font-serif mb-6 mt-2">Liju Vijayan</h2>
+                    <h3 class="text-xl text-white font-bold uppercase tracking-widest mb-10 border-l-4 border-gold pl-6">
+                        CEO, VIJAYA EXPORTS <span class="mx-3 text-white/20">|</span> FOUNDER, URUMIKA
+                    </h3>
+                    <div class="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+                        <p>A distinguished entrepreneur based in Ernakulam, Liju Vijayan brings a legacy of management excellence from <strong>Vijaya Exports</strong> (Ernakulam & Pondicherry) to the residential sector.</p>
+                        <p>Through Urumika, he translates this corporate discipline into a "caring and understanding" environment for women, personally ensuring 5.0-star standards of security and homely comfort.</p>
                     </div>
-                    <div class="h-1 w-20 bg-teal-500 rounded-full mx-auto lg:mx-0"></div>
-                    <div class="space-y-4 text-gray-600 leading-relaxed max-w-2xl text-center lg:text-left">
-                        <p class="text-lg">A distinguished entrepreneur based in Ernakulam, Liju Vijayan brings a legacy of management excellence from <strong class="text-brand-dark border-b-2 border-teal-500 pb-1">Vijaya Exports</strong> (Ernakulam & Pondicherry) to the residential sector.</p>
-                        <p>Through Urumika, he translates this corporate discipline into a "caring and understanding" environment for women, personally ensuring 5.0-star standards. </p>
-                    </div>
-                    <div class="pt-6 text-center lg:text-left">
-                        <a href="tel:+917907280664" class="inline-flex items-center gap-3 bg-brand-dark text-white px-10 py-4 rounded-xl font-bold hover:bg-black transition shadow-2xl uppercase tracking-widest text-xs">
+                    <div class="pt-10">
+                        <a href="tel:+917907280664" class="inline-flex items-center gap-4 bg-white text-midnight px-10 py-4 rounded-xl font-bold hover:bg-gold transition-all shadow-2xl uppercase tracking-widest text-xs">
                             <i class="fas fa-phone-alt"></i> Connect Personally
                         </a>
                     </div>
@@ -233,90 +224,89 @@ This flow mirrors the premium user experience found on professional sites like S
         </div>
     </section>
 
-    <section id="location" class="py-20 bg-gray-50 border-t border-gray-100">
-        <div class="container mx-auto px-4 md:px-8 text-center lg:text-left">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                <div class="lg:col-span-1 space-y-6">
-                    <div class="inline-block bg-teal-50 text-teal-600 text-xs font-bold px-3 py-1 rounded-full">Kakkanad, Kochi</div>
-                    <h2 class="text-3xl font-bold text-gray-900 leading-tight">Link Valley <br> Residency</h2>
-                    <div class="space-y-6 pt-4 text-left">
+    <section id="location" class="py-32 bg-midnight">
+        <div class="container mx-auto px-8">
+            <div class="grid lg:grid-cols-3 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-block bg-white/5 text-gold text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-widest">Kakkanad, Kochi</div>
+                    <h2 class="text-4xl md:text-5xl font-serif leading-tight">Link Valley <br> Residency</h2>
+                    <div class="space-y-6">
                         <div class="flex gap-4">
-                            <i class="fas fa-map-pin text-teal-500 text-xl mt-1"></i>
-                            <div><h4 class="font-bold">Prime Connectivity</h4><p class="text-sm text-gray-500">1.5km from Infopark Phase 1 and SmartCity. </p></div>
+                            <i class="fas fa-map-pin text-gold text-xl"></i>
+                            <div><h4 class="font-bold uppercase text-xs tracking-widest">Prime Connectivity</h4><p class="text-sm text-gray-500 mt-1">1.5km from Infopark Phase 1 and SmartCity.</p></div>
                         </div>
                         <div class="flex gap-4">
-                            <i class="fas fa-hospital text-teal-500 text-xl mt-1"></i>
-                            <div><h4 class="font-bold">Landmark</h4><p class="text-sm text-gray-500">Situated near Kusumagiri Hospital. </p></div>
+                            <i class="fas fa-hospital text-gold text-xl"></i>
+                            <div><h4 class="font-bold uppercase text-xs tracking-widest">Major Landmark</h4><p class="text-sm text-gray-500 mt-1">Situated near Kusumagiri Hospital.</p></div>
                         </div>
                     </div>
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.530353155708!2d76.34586947479427!3d10.023438672740924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d4627680789%3A0xe54d90998a44d099!2sKusumagiri%20Hospital!5e0!3m2!1sen!2sin!4v1716548765432!5m2!1sen!2sin" target="_blank" class="inline-flex items-center gap-3 border border-white/20 px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition">
+                        Get Directions <i class="fas fa-arrow-right text-gold"></i>
+                    </a>
                 </div>
-                <div class="lg:col-span-2 h-[450px rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                <div class="lg:col-span-2 h-[500px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/5">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.530353155708!2d76.34586947479427!3d10.023438672740924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d4627680789%3A0xe54d90998a44d099!2sKusumagiri%20Hospital!5e0!3m2!1sen!2sin!4v1716548765432!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
-<section id="fun-zone" class="hidden py-16 bg-brand-dark text-white text-center">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-4 font-serif italic text-teal-400">Internet Down? No Problem!</h2>
-        <p class="text-gray-400 mb-8 text-sm uppercase tracking-widest">Enjoy a quick break at Urumika</p>
-        
-        <div class="relative inline-block border-8 border-gray-800 rounded-3xl overflow-hidden shadow-2xl bg-black">
-            <canvas id="gameCanvas" width="480" height="320" class="max-w-full h-auto cursor-none"></canvas>
-            <div id="gameOverlay" class="absolute inset-0 flex items-center justify-center bg-black/60">
-                <button onclick="startGame()" class="bg-teal-500 text-white px-8 py-3 rounded-full font-bold hover:bg-teal-600 transition shadow-xl">
-                    START BREAKOUT
-                </button>
+
+    <section id="fun-zone" class="hidden py-32 bg-[#0E1318] text-center border-t border-white/5">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-serif mb-4 italic text-gold">Internet Down? No Problem!</h2>
+            <p class="text-gray-500 mb-12 text-xs uppercase tracking-[0.4em]">Enjoy a quick break at Urumika</p>
+            <div class="relative inline-block border-8 border-midnight rounded-[2rem] overflow-hidden shadow-2xl bg-black">
+                <canvas id="gameCanvas" width="480" height="320" class="max-w-full h-auto cursor-none"></canvas>
+                <div id="gameOverlay" class="absolute inset-0 flex items-center justify-center bg-black/80">
+                    <button onclick="startGame()" class="bg-gold text-midnight px-10 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:scale-110 transition">Start Game</button>
+                </div>
+            </div>
+            <div class="mt-10">
+                <button onclick="toggleGame()" class="text-white/20 hover:text-white transition text-[10px] uppercase tracking-widest underline">Close Fun Zone</button>
             </div>
         </div>
-        
-        <div class="mt-6">
-            <button onclick="toggleGame()" class="text-gray-500 hover:text-white transition text-xs uppercase underline">Close Fun Zone</button>
-        </div>
-    </div>
-</section>
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4 grid md:grid-cols-4 gap-12">
-            <div class="col-span-2">
-                <h2 class="text-2xl font-bold text-teal-500 mb-4 tracking-tighter uppercase leading-none italic">Urumika</h2>
-                <p class="text-gray-400 text-sm max-w-sm">Premier ladies hostel in Kakkanad. Managed by Liju Vijayan (Vijaya Exports) with a focus on your safety. </p>
+    </section>
+
+    <footer class="bg-midnight pt-32 pb-16 border-t border-white/5">
+        <div class="container mx-auto px-8 grid md:grid-cols-4 gap-16 pb-16">
+            <div class="col-span-2 space-y-6">
+                <h2 class="text-3xl font-serif text-gold tracking-tighter uppercase leading-none italic">Urumika</h2>
+                <p class="text-gray-500 text-sm max-w-sm leading-relaxed">Premier ladies residence in Kakkanad. Managed with the professional standards of Vijaya Exports.</p>
             </div>
-            <div>
-                <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-teal-500">Legal</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="rules.html" class="hover:text-teal-500">House Rules</a></li>
-                    <li><a href="terms.html" class="hover:text-teal-500">Terms & Conditions</a></li>
+            <div class="space-y-6">
+                <h4 class="font-bold uppercase text-[10px] tracking-[0.3em] text-gold">Legal</h4>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li><a href="rules.html" class="hover:text-white transition">House Rules</a></li>
+                    <li><a href="terms.html" class="hover:text-white transition">Terms & Conditions</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-teal-500">Contact</h4>
-                <ul class="space-y-2 text-sm text-gray-400 text-xs">
-                    <li><i class="fas fa-phone mr-2 text-teal-500"></i> +91 79072 80664</li>
-                    <li><i class="fas fa-envelope mr-2 text-teal-500"></i> lijuvijayanind@gmail.com</li>
+            <div class="space-y-6">
+                <h4 class="font-bold uppercase text-[10px] tracking-[0.3em] text-gold">Contact</h4>
+                <ul class="space-y-4 text-xs text-gray-500">
+                    <li><i class="fas fa-phone mr-3 text-gold"></i> +91 79072 80664</li>
+                    <li><i class="fas fa-envelope mr-3 text-gold"></i> lijuvijayanind@gmail.com</li>
                 </ul>
             </div>
         </div>
-        <div class="text-center text-[10px text-gray-600 border-t border-gray-800 mt-12 pt-8 uppercase tracking-widest italic italic">
-            © 2025 Urumika Residences. Managed by Liju Vijayan.
+        <div class="flex flex-col items-center border-t border-white/5 pt-16">
+            <p class="text-[9px] text-white/10 uppercase tracking-[0.6em] font-bold text-center">© 2025 Urumika Residences. Managed by Liju Vijayan.</p>
+            <button onclick="toggleGame()" class="mt-8 text-white/5 hover:text-gold transition-all"><i class="fas fa-gamepad text-2xl"></i></button>
         </div>
-        <button onclick="toggleGame()" class="text-gray-800 hover:text-teal-500 transition ml-4" title="Offline Mode">
-    <i class="fas fa-gamepad"></i>
-</button>
     </footer>
 
-    <div id="booking-modal" class="fixed inset-0 z-[100 hidden flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm transition-opacity">
-        <div class="bg-white w-full max-w-md p-8 rounded-3xl shadow-2xl relative">
-            <button onclick="toggleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition"><i class="fas fa-times text-xl"></i></button>
-            <h3 class="text-2xl font-bold mb-4 text-brand-dark uppercase">Reserve Now</h3>
-            <p class="text-sm text-gray-500 mb-8 leading-relaxed">By selecting 'Reserve Now' you unlock exclusive corporate discounts for your first month. </p>
-            <form action="mailto:lijuvijayanind@gmail.com" class="space-y-4">
-                <input type="text" placeholder="Full Name" class="w-full bg-gray-50 border p-4 rounded-xl text-sm focus:outline-none focus:border-teal-500 transition border-gray-100">
-                <input type="tel" placeholder="Mobile Number" class="w-full bg-gray-50 border p-4 rounded-xl text-sm focus:outline-none focus:border-teal-500 transition border-gray-100">
-                <select class="w-full bg-gray-50 border p-4 rounded-xl text-sm outline-none border-gray-100 text-gray-500">
-                    <option>Double Sharing</option>
-                    <option>Triple Sharing</option>
+    <div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-midnight/95 backdrop-blur-xl px-4">
+        <div class="bg-midnight w-full max-w-md p-10 rounded-[2rem] border border-white/10 shadow-2xl relative">
+            <button onclick="toggleModal()" class="absolute top-8 right-8 text-white/20 hover:text-white transition"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="text-3xl font-serif text-white mb-2">Reserve Now</h3>
+            <p class="text-xs text-gold uppercase tracking-widest mb-10">Exclusive Executive Discount</p>
+            <form action="mailto:lijuvijayanind@gmail.com" class="space-y-5">
+                <input type="text" placeholder="Full Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm focus:border-gold outline-none text-white transition">
+                <input type="tel" placeholder="Mobile Number" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm focus:border-gold outline-none text-white transition">
+                <select class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-sm outline-none text-gray-400 focus:border-gold transition appearance-none">
+                    <option class="bg-midnight">Double Sharing</option>
+                    <option class="bg-midnight">Triple Sharing</option>
                 </select>
-                <button class="w-full bg-teal-500 text-white font-bold py-4 rounded-xl hover:bg-teal-600 transition shadow-lg uppercase tracking-widest text-xs">Unlock Discount</button>
+                <button class="w-full bg-gold text-midnight font-black py-4 rounded-xl shadow-2xl uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition">Claim Discount</button>
             </form>
         </div>
     </div>
@@ -324,149 +314,132 @@ This flow mirrors the premium user experience found on professional sites like S
     <script>
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
         function toggleModal() { document.getElementById('booking-modal').classList.toggle('hidden'); }
-    </script>
-    function toggleGame() {
-    document.getElementById('fun-zone').classList.toggle('hidden');
-}
+        function toggleGame() { document.getElementById('fun-zone').classList.toggle('hidden'); }
 
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-let x = canvas.width / 2;
-let y = canvas.height - 30;
-let dx = 2;
-let dy = -2;
-const ballRadius = 10;
-const paddleHeight = 10;
-const paddleWidth = 75;
-let paddleX = (canvas.width - paddleWidth) / 2;
-let rightPressed = false;
-let leftPressed = false;
-let gameRunning = false;
+        // GAME LOGIC
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        let x = canvas.width / 2;
+        let y = canvas.height - 30;
+        let dx = 2.5;
+        let dy = -2.5;
+        const ballRadius = 10;
+        const paddleHeight = 10;
+        const paddleWidth = 75;
+        let paddleX = (canvas.width - paddleWidth) / 2;
+        let rightPressed = false;
+        let leftPressed = false;
+        let gameRunning = false;
 
-// Bricks
-const brickRowCount = 3;
-const brickColumnCount = 5;
-const brickWidth = 75;
-const brickHeight = 20;
-const brickPadding = 10;
-const brickOffsetTop = 30;
-const brickOffsetLeft = 30;
-let bricks = [];
+        const brickRowCount = 3;
+        const brickColumnCount = 5;
+        const brickWidth = 75;
+        const brickHeight = 20;
+        const brickPadding = 10;
+        const brickOffsetTop = 30;
+        const brickOffsetLeft = 30;
+        let bricks = [];
 
-function initBricks() {
-    for (let c = 0; c < brickColumnCount; c++) {
-        bricks[c] = [];
-        for (let r = 0; r < brickRowCount; r++) {
-            bricks[c][r] = { x: 0, y: 0, status: 1 };
-        }
-    }
-}
-
-function startGame() {
-    document.getElementById('gameOverlay').classList.add('hidden');
-    initBricks();
-    gameRunning = true;
-    draw();
-}
-
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("mousemove", mouseMoveHandler, false);
-
-function mouseMoveHandler(e) {
-    const relativeX = e.clientX - canvas.offsetLeft;
-    if (relativeX > 0 && relativeX < canvas.width) {
-        paddleX = relativeX - paddleWidth / 2;
-    }
-}
-
-function keyDownHandler(e) {
-    if (e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
-    else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
-}
-
-function keyUpHandler(e) {
-    if (e.key === "Right" || e.key === "ArrowRight") rightPressed = false;
-    else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
-}
-
-function collisionDetection() {
-    for (let c = 0; c < brickColumnCount; c++) {
-        for (let r = 0; r < brickRowCount; r++) {
-            const b = bricks[c][r];
-            if (b.status === 1) {
-                if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
-                    dy = -dy;
-                    b.status = 0;
+        function initBricks() {
+            for (let c = 0; c < brickColumnCount; c++) {
+                bricks[c] = [];
+                for (let r = 0; r < brickRowCount; r++) {
+                    bricks[c][r] = { x: 0, y: 0, status: 1 };
                 }
             }
         }
-    }
-}
 
-function drawBall() {
-    ctx.beginPath();
-    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#00B5B5"; // Teal Ball
-    ctx.fill();
-    ctx.closePath();
-}
+        function startGame() {
+            document.getElementById('gameOverlay').classList.add('hidden');
+            initBricks();
+            gameRunning = true;
+            x = canvas.width / 2; y = canvas.height - 30;
+            requestAnimationFrame(draw);
+        }
 
-function drawPaddle() {
-    ctx.beginPath();
-    ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#ffffff";
-    ctx.fill();
-    ctx.closePath();
-}
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
+            else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
+        }, false);
 
-function drawBricks() {
-    for (let c = 0; c < brickColumnCount; c++) {
-        for (let r = 0; r < brickRowCount; r++) {
-            if (bricks[c][r].status === 1) {
-                const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
-                const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-                bricks[c][r].x = brickX;
-                bricks[c][r].y = brickY;
-                ctx.beginPath();
-                ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#FFD700"; // Yellow Bricks
-                ctx.fill();
-                ctx.closePath();
+        document.addEventListener("keyup", (e) => {
+            if (e.key === "Right" || e.key === "ArrowRight") rightPressed = false;
+            else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
+        }, false);
+
+        function collisionDetection() {
+            for (let c = 0; c < brickColumnCount; c++) {
+                for (let r = 0; r < brickRowCount; r++) {
+                    const b = bricks[c][r];
+                    if (b.status === 1) {
+                        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                            dy = -dy;
+                            b.status = 0;
+                        }
+                    }
+                }
             }
         }
-    }
-}
 
-function draw() {
-    if (!gameRunning) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBricks();
-    drawBall();
-    drawPaddle();
-    collisionDetection();
-
-    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) dx = -dx;
-    if (y + dy < ballRadius) dy = -dy;
-    else if (y + dy > canvas.height - ballRadius) {
-        if (x > paddleX && x < paddleX + paddleWidth) dy = -dy;
-        else {
-            gameRunning = false;
-            document.getElementById('gameOverlay').classList.remove('hidden');
-            x = canvas.width / 2; y = canvas.height - 30; dx = 2; dy = -2;
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "#D4AF37";
+            ctx.fill();
+            ctx.closePath();
         }
-    }
 
-    if (rightPressed && paddleX < canvas.width - paddleWidth) paddleX += 7;
-    else if (leftPressed && paddleX > 0) paddleX -= 7;
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+            ctx.closePath();
+        }
 
-    x += dx;
-    y += dy;
-    requestAnimationFrame(draw);
-}
+        function drawBricks() {
+            for (let c = 0; c < brickColumnCount; c++) {
+                for (let r = 0; r < brickRowCount; r++) {
+                    if (bricks[c][r].status === 1) {
+                        const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+                        const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+                        bricks[c][r].x = brickX;
+                        bricks[c][r].y = brickY;
+                        ctx.beginPath();
+                        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                        ctx.fillStyle = "#00B5B5";
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+                }
+            }
+        }
+
+        function draw() {
+            if (!gameRunning) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBricks();
+            drawBall();
+            drawPaddle();
+            collisionDetection();
+
+            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) dx = -dx;
+            if (y + dy < ballRadius) dy = -dy;
+            else if (y + dy > canvas.height - ballRadius) {
+                if (x > paddleX && x < paddleX + paddleWidth) dy = -dy;
+                else {
+                    gameRunning = false;
+                    document.getElementById('gameOverlay').classList.remove('hidden');
+                }
+            }
+
+            if (rightPressed && paddleX < canvas.width - paddleWidth) paddleX += 7;
+            else if (leftPressed && paddleX > 0) paddleX -= 7;
+
+            x += dx;
+            y += dy;
+            requestAnimationFrame(draw);
+        }
+    </script>
 </body>
 </html>
-
-
-
-
