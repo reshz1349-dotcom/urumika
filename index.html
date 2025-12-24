@@ -5,77 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URUMIKA | Premier Ladies Residence Kakkanad</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Prata&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { 
-                        sans: ['Montserrat', 'sans-serif'], 
-                        serif: ['Playfair Display', 'serif'] 
-                    },
-                    colors: { 
-                        icaiBlue: '#1a3a6c', 
-                        gold: '#D4AF37',
-                        teal: '#00B5B5'
-                    }
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'], serif: ['Prata', 'serif'] },
+                    colors: { icaiBlue: '#1a3a6c', gold: '#D4AF37', teal: '#00B5B5', midnight: '#0A0F14' }
                 }
             }
         }
     </script>
     <style>
-        .hero-gradient { background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.6)); }
-        .section-header { border-left: 5px solid #1a3a6c; padding-left: 20px; }
-        .v-badge { writing-mode: vertical-rl; text-orientation: mixed; background: #1a3a6c; color: white; }
+        .hero-overlay { background: linear-gradient(to right, rgba(26, 58, 108, 0.9) 0%, rgba(26, 58, 108, 0.5) 100%); }
+        .nav-glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); }
+        .v-badge-vertical { writing-mode: vertical-rl; text-orientation: mixed; }
+        .faq-box:hover { border-left-color: #D4AF37; }
         #chatbot-window { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-slate-800 antialiased overflow-x-hidden">
 
-    <div class="bg-icaiBlue text-white text-[10px] py-2 px-8 flex justify-between items-center font-bold tracking-widest uppercase">
-        <div>Official Residence of Vijaya Exports</div>
-        <div class="flex gap-6">
-            <a href="tel:+917907280664" class="hover:text-gold"><i class="fas fa-phone mr-1"></i> +91 79072 80664</a>
-            <a href="mailto:lijuvijayanind@gmail.com" class="hover:text-gold"><i class="fas fa-envelope mr-1"></i> Email Inquiry</a>
-        </div>
-    </div>
-
-    <header class="sticky top-0 z-50 bg-white shadow-md h-20 flex items-center">
+    <header class="fixed top-0 w-full z-50 nav-glass h-24 flex items-center border-b border-gray-100 shadow-sm">
         <div class="container mx-auto px-8 flex justify-between items-center">
             <div class="flex flex-col">
-                <a href="index.html" class="text-3xl font-bold text-icaiBlue tracking-tighter leading-none uppercase">URUMIKA</a>
-                <span class="text-[9px] font-bold text-gray-400 tracking-[0.3em] uppercase mt-1">Secure Living for Women</span>
+                <a href="index.html" class="text-3xl font-extrabold tracking-tighter uppercase text-icaiBlue leading-none">URUMIKA</a>
+                <span class="text-[9px] font-bold text-gold tracking-[0.4em] uppercase mt-2">Premier Ladies Residence</span>
             </div>
-            <nav class="hidden lg:flex gap-10 text-[11px] font-bold tracking-widest uppercase text-slate-600 items-center">
-                <a href="#journey" class="hover:text-icaiBlue transition">Our Story</a>
-                <a href="#residences" class="hover:text-icaiBlue transition">Residences</a>
-                <a href="#founder" class="hover:text-icaiBlue transition">Leadership</a>
-                <a href="#location" class="hover:text-icaiBlue transition">Location</a>
-                <button onclick="toggleModal()" class="bg-icaiBlue text-white px-8 py-2 rounded shadow-lg hover:bg-blue-900 transition">Reserve Now</button>
+            <nav class="hidden lg:flex gap-6 text-[10px] font-bold tracking-[0.2em] uppercase items-center text-icaiBlue">
+                <a href="#journey" class="hover:text-gold transition-all">Story</a>
+                <a href="#gallery" class="hover:text-gold transition-all">Gallery</a>
+                <a href="#residences" class="hover:text-gold transition-all">Suites</a>
+                <a href="#reviews" class="hover:text-gold transition-all">Reviews</a>
+                <a href="#blog" class="hover:text-gold transition-all">Blog</a>
+                <a href="#faq" class="hover:text-gold transition-all">FAQ</a>
+                <button onclick="toggleModal('booking-modal')" class="bg-icaiBlue text-white px-6 py-2 rounded-full hover:bg-gold transition-all">Reserve</button>
             </nav>
+            <button onclick="toggleMenu()" class="lg:hidden text-3xl text-icaiBlue"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <section class="relative h-[85vh] flex items-center overflow-hidden">
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex flex-col items-center justify-center space-y-8 text-center">
+        <button onclick="toggleMenu()" class="absolute top-8 right-8 text-icaiBlue text-4xl"><i class="fas fa-times"></i></button>
+        <a href="#journey" class="text-xl uppercase font-bold" onclick="toggleMenu()">Our Story</a>
+        <a href="#gallery" class="text-xl uppercase font-bold" onclick="toggleMenu()">Gallery</a>
+        <a href="#residences" class="text-xl uppercase font-bold" onclick="toggleMenu()">Residences</a>
+        <a href="#blog" class="text-xl uppercase font-bold" onclick="toggleMenu()">Community Blog</a>
+        <button onclick="toggleModal('booking-modal')" class="bg-gold text-white px-10 py-3 rounded-full font-black">Reserve Now</button>
+    </div>
+
+    <section class="relative min-h-screen flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Professional Living">
-            <div class="absolute inset-0 hero-gradient"></div>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Elite Professional Living">
+            <div class="absolute inset-0 hero-overlay"></div>
         </div>
         <div class="container mx-auto px-8 relative z-10 text-white">
             <span class="text-gold font-bold tracking-[0.5em] uppercase text-xs mb-6 block">Kakkanad, Kochi • Link Valley</span>
-            <h1 class="text-6xl md:text-8xl font-serif mb-8 leading-tight">Urumika Ladies <br> Residence</h1>
-            <p class="max-w-2xl text-xl font-light text-blue-50 leading-relaxed mb-10">
-                A premier residence for working women and students. Strategically located 1.5km from Infopark and SmartCity, offering the safety and comfort of a second home.
+            <h1 class="text-6xl md:text-8xl font-serif mb-8 leading-tight">Urumika PG <br><span class="italic text-gold">Ladies Hostel.</span></h1>
+            <p class="max-w-2xl text-blue-50 text-xl md:text-2xl font-light mb-12">
+                A premier residence for working women and students. Just 1.5km from Infopark and SmartCity, offering the corporate safety and comfort of a second home.
             </p>
             <div class="flex flex-wrap gap-6">
-                <a href="tel:+917907280664" class="bg-white text-icaiBlue px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-gray-100 transition shadow-xl flex items-center gap-3">
-                    <i class="fas fa-phone-alt"></i> Call Founder
-                </a>
-                <a href="https://wa.me/917907280664" class="bg-[#25D366] text-white px-10 py-4 font-bold uppercase text-xs tracking-widest flex items-center gap-3 hover:shadow-2xl transition">
-                    <i class="fab fa-whatsapp text-xl"></i> WhatsApp Liju Vijayan
-                </a>
+                <a href="tel:+917907280664" class="bg-white text-icaiBlue px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 hover:bg-gold transition-all"><i class="fas fa-phone"></i> Call Founder</a>
+                <a href="https://wa.me/917907280664" class="bg-[#25D366] text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 hover:shadow-xl transition-all shadow-lg"><i class="fab fa-whatsapp text-xl"></i> WhatsApp</a>
             </div>
         </div>
     </section>
@@ -84,21 +78,23 @@
         <div class="container mx-auto px-8">
             <div class="grid lg:grid-cols-12 gap-20 items-center">
                 <div class="lg:col-span-5 relative">
-                    <img src="founder.jpg" class="relative z-10 w-full shadow-2xl rounded-sm object-cover aspect-[3/4]" alt="Liju Vijayan">
-                    <div class="absolute top-0 right-0 px-4 py-16 v-badge font-bold tracking-[0.5em] text-[10px] z-20">
+                    <img src="founder.jpg" class="relative z-10 w-full shadow-2xl rounded-xl aspect-[3/4] object-cover" alt="Liju Vijayan">
+                    <div class="absolute top-0 right-0 bg-icaiBlue text-white px-5 py-20 v-badge-vertical font-black tracking-[0.6em] text-[10px] z-20">
                         VIJAYA EXPORTS
                     </div>
                 </div>
                 <div class="lg:col-span-7">
-                    <div class="section-header mb-10">
-                        <span class="text-icaiBlue font-bold tracking-[0.2em] uppercase text-xs">Visionary Leadership</span>
-                        <h2 class="text-5xl font-serif text-icaiBlue mt-4 uppercase">Liju Vijayan</h2>
-                        <h3 class="text-xl text-gray-500 font-bold mt-2 uppercase tracking-widest italic">CEO, VIJAYA EXPORTS | FOUNDER, URUMIKA</h3>
-                    </div>
-                    <div class="space-y-8 text-lg text-slate-600 leading-relaxed font-light">
-                        <p>A distinguished entrepreneur based in Ernakulam, Liju Vijayan brings a legacy of management excellence from <strong>Vijaya Exports</strong> to the residential sector.</p>
-                        <p>Through Urumika, he translates this corporate discipline into a "caring and understanding" environment for women, personally ensuring 5.0-star standards of security and homely comfort.</p>
-                    </div>
+                    <span class="text-gold font-bold tracking-[0.2em] uppercase text-xs">Visionary Leadership</span>
+                    <h2 class="text-5xl font-serif text-icaiBlue mb-6 mt-2">Liju Vijayan</h2>
+                    <h3 class="text-xl text-icaiBlue font-bold uppercase tracking-widest mb-10 border-l-4 border-gold pl-6">
+                        CEO, VIJAYA EXPORTS | FOUNDER, URUMIKA
+                    </h3>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                        A distinguished entrepreneur based in Ernakulam, Liju Vijayan brings a legacy of management excellence from <strong>Vijaya Exports</strong> (Kerala & Pondicherry) to the residential sector.
+                    </p>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Through Urumika, he translates this corporate discipline into a "caring and understanding" environment for women, personally ensuring 5.0-star standards of security and homely comfort.
+                    </p>
                 </div>
             </div>
         </div>
@@ -108,93 +104,127 @@
         <div class="container mx-auto px-8">
             <h2 class="text-center text-5xl font-serif text-icaiBlue mb-24 uppercase">Live Availability</h2>
             <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto text-left">
-                <div class="bg-white shadow-xl group border-t-8 border-icaiBlue rounded-b-xl overflow-hidden">
+                <div class="bg-white shadow-xl group border-t-8 border-icaiBlue overflow-hidden">
                     <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
                         <span class="absolute top-8 right-8 bg-teal-500 text-white px-5 py-1 text-[10px] font-bold uppercase tracking-widest">Available Now</span>
                     </div>
-                    <div class="p-12">
-                        <h4 class="text-2xl font-bold text-icaiBlue uppercase tracking-tighter mb-4">Double Sharing Executive</h4>
-                        <p class="text-slate-500 mb-8 italic">Spacious, attached bath, and fully furnished for professional comfort.</p>
-                        <div class="flex justify-between items-center pt-8 border-t border-gray-100">
-                            <p class="text-4xl font-serif text-icaiBlue italic font-bold">₹7,500<span class="text-sm font-sans text-gray-400 ml-1">/mo</span></p>
-                            <button onclick="toggleModal()" class="bg-icaiBlue text-white px-8 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-colors">Book Now</button>
-                        </div>
+                    <div class="p-12 text-center">
+                        <h4 class="text-2xl font-bold text-icaiBlue uppercase mb-4">Double Sharing</h4>
+                        <p class="text-4xl font-serif text-icaiBlue italic mb-8 font-bold">₹7,500/mo</p>
+                        <button onclick="toggleModal('booking-modal')" class="bg-icaiBlue text-white px-8 py-3 rounded uppercase text-[10px] font-bold hover:bg-gold transition shadow-lg">Book Suite</button>
                     </div>
                 </div>
-                <div class="bg-white shadow-xl group border-t-8 border-icaiBlue rounded-b-xl overflow-hidden">
+                <div class="bg-white shadow-xl group border-t-8 border-icaiBlue overflow-hidden">
                     <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1555854817-2b22603c76db?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
                         <span class="absolute top-8 right-8 bg-red-600 text-white px-5 py-1 text-[10px] font-bold uppercase tracking-widest">1 Spot Left</span>
                     </div>
-                    <div class="p-12">
-                        <h4 class="text-2xl font-bold text-icaiBlue uppercase tracking-tighter mb-4">Triple Sharing Premium</h4>
-                        <p class="text-slate-500 mb-8 italic">Economical yet secure with high-speed Wi-Fi and safe environment.</p>
-                        <div class="flex justify-between items-center pt-8 border-t border-gray-100">
-                            <p class="text-4xl font-serif text-icaiBlue italic font-bold">₹6,500<span class="text-sm font-sans text-gray-400 ml-1">/mo</span></p>
-                            <button onclick="toggleModal()" class="bg-icaiBlue text-white px-8 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition-colors">Book Now</button>
-                        </div>
+                    <div class="p-12 text-center">
+                        <h4 class="text-2xl font-bold text-icaiBlue uppercase mb-4">Triple Sharing</h4>
+                        <p class="text-4xl font-serif text-icaiBlue italic mb-8 font-bold">₹6,500/mo</p>
+                        <button onclick="toggleModal('booking-modal')" class="bg-icaiBlue text-white px-8 py-3 rounded uppercase text-[10px] font-bold hover:bg-gold transition shadow-lg">Book Suite</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="location" class="py-32 bg-white">
+    <section id="reviews" class="py-32 bg-white">
+        <div class="container mx-auto px-8">
+            <h2 class="text-center text-5xl font-serif text-icaiBlue mb-20 uppercase underline decoration-gold underline-offset-8">Resident Reviews</h2>
+            <div class="grid md:grid-cols-3 gap-12 mb-20 text-center">
+                <div class="p-10 bg-gray-50 rounded-3xl border border-gray-100 italic text-slate-500">
+                    "Safe, clean, and managed by professionals. The perfect place near Infopark." - Mercy K
+                </div>
+                <div class="p-10 bg-gray-50 rounded-3xl border border-gray-100 italic text-slate-500">
+                    "Managed personally by Liju Vijayan. Verysafe environment for women." - Saktheeswari
+                </div>
+                <div class="p-10 bg-gray-50 rounded-3xl border border-gray-100 flex flex-col items-center justify-center">
+                    <p class="font-bold mb-6">Found us on Google?</p>
+                    <a href="https://search.google.com/local/writereview" target="_blank" class="text-icaiBlue font-black uppercase text-xs tracking-widest border-b-2 border-gold pb-1">Write a Review</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="py-32 bg-gray-50">
+        <div class="container mx-auto px-8">
+            <h2 class="text-center text-5xl font-serif text-icaiBlue mb-20 uppercase">Community Blog</h2>
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="bg-white p-12 rounded-3xl shadow-lg border border-gray-100">
+                    <span class="text-gold font-bold text-xs uppercase tracking-widest">Guide</span>
+                    <h4 class="text-2xl font-bold text-icaiBlue mt-4 mb-6 uppercase leading-tight">Walking to Infopark: A 1.5KM Route Guide</h4>
+                    <p class="text-slate-600 mb-8">Detailed insights on navigating Link Valley to Kochi's tech hubs effectively.</p>
+                    <a href="#" class="text-icaiBlue font-black text-xs uppercase tracking-widest border-b-2 border-icaiBlue">Read Post</a>
+                </div>
+                <div class="border-4 border-dashed border-gray-300 rounded-3xl flex flex-col items-center justify-center p-12 text-center bg-white/50">
+                    <h4 class="text-2xl font-bold mb-4 uppercase">Post a Story</h4>
+                    <p class="text-slate-500 mb-8 italic">Share your experience with our resident community.</p>
+                    <button class="bg-icaiBlue text-white px-10 py-4 rounded font-bold uppercase text-[10px] tracking-widest">Write Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 bg-white">
+        <div class="container mx-auto px-8 max-w-4xl">
+            <h2 class="text-5xl font-serif text-icaiBlue mb-16 text-center uppercase">FAQ</h2>
+            <div class="space-y-6">
+                <div class="faq-box p-8 border-l-4 border-gray-200 bg-gray-50 transition-all">
+                    <h4 class="font-bold text-icaiBlue uppercase tracking-widest mb-2 text-sm">How far is the residence from Infopark?</h4>
+                    <p class="text-slate-600">We are strategically located just 1.5km from Infopark Phase 1 and SmartCity in Link Valley[cite: 64].</p>
+                </div>
+                <div class="faq-box p-8 border-l-4 border-gray-200 bg-gray-50 transition-all">
+                    <h4 class="font-bold text-icaiBlue uppercase tracking-widest mb-2 text-sm">Is food included in the monthly rent?</h4>
+                    <p class="text-slate-600">Yes, we provide nutritious homely food for all our residents as part of our total comfort package[cite: 30].</p>
+                </div>
+                <div class="faq-box p-8 border-l-4 border-gray-200 bg-gray-50 transition-all">
+                    <h4 class="font-bold text-icaiBlue uppercase tracking-widest mb-2 text-sm">What are the security measures?</h4>
+                    <p class="text-slate-600">We maintain 24/7 security and CCTV surveillance to ensure a secure living environment for all women[cite: 3, 76].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-gray-100">
         <div class="container mx-auto px-8">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-8">
-                    <div class="section-header">
-                        <h2 class="text-5xl font-serif text-icaiBlue uppercase leading-tight">Link Valley <br> Residency</h2>
-                        <p class="text-xl text-gray-500 mt-4 italic">Just 1.5km from Infopark & SmartCity.</p>
-                    </div>
-                    <div class="space-y-6 pt-6">
-                        <div class="flex gap-4">
-                            <i class="fas fa-map-pin text-gold text-2xl"></i>
-                            <div><h4 class="font-bold text-icaiBlue uppercase text-xs tracking-widest">Address</h4><p class="text-sm text-gray-500">Link Valley, Kakkanad, Kochi, Kerala.</p></div>
-                        </div>
-                        <div class="flex gap-4">
-                            <i class="fas fa-hospital text-gold text-2xl"></i>
-                            <div><h4 class="font-bold text-icaiBlue uppercase text-xs tracking-widest">Landmark</h4><p class="text-sm text-gray-500">Situated near Kusumagiri Hospital.</p></div>
+                <div class="space-y-10">
+                    <h2 class="text-5xl font-serif text-icaiBlue uppercase">Suggestion <br> & Inquiries</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed italic">Have a suggestion to improve Urumika? Or a question about our suites? Drop us a message directly.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-center">
+                            <i class="fas fa-map-pin text-gold"></i>
+                            <p class="text-sm font-bold uppercase tracking-widest">Link Valley, near Kusumagiri Hospital.</p>
                         </div>
                     </div>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=Kusumagiri+Hospital+Kakkanad" target="_blank" class="inline-flex items-center gap-4 bg-icaiBlue text-white px-10 py-4 font-bold uppercase text-[10px] tracking-widest hover:bg-gold transition-all shadow-xl">
-                        <i class="fas fa-directions"></i> Get Directions
-                    </a>
+                    <div class="h-80 shadow-2xl border-8 border-white overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.530353155708!2d76.34586947479427!3d10.023438672740924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d4627680789%3A0xe54d90998a44d099!2sKusumagiri%20Hospital!5e0!3m2!1sen!2sin!4v1716548765432!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
-                <div class="h-[550px] shadow-2xl border-8 border-gray-50 rounded-lg overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.55395277868!2d76.3533!3d10.0122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDAwJzQzLjkiTiA3NsKwMjEnMTEuOSJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="bg-white p-12 shadow-2xl rounded-3xl border-t-8 border-gold">
+                    <form action="mailto:lijuvijayanind@gmail.com" class="space-y-6">
+                        <input type="text" placeholder="FULL NAME" class="w-full bg-gray-50 border-2 border-gray-100 p-4 text-xs font-bold outline-none focus:border-icaiBlue transition">
+                        <input type="email" placeholder="EMAIL ADDRESS" class="w-full bg-gray-50 border-2 border-gray-100 p-4 text-xs font-bold outline-none focus:border-icaiBlue transition">
+                        <textarea placeholder="YOUR SUGGESTION OR QUERY" rows="5" class="w-full bg-gray-50 border-2 border-gray-100 p-4 text-xs font-bold outline-none focus:border-icaiBlue transition"></textarea>
+                        <button class="w-full bg-icaiBlue text-white font-black py-4 uppercase tracking-widest text-[10px] hover:bg-gold transition shadow-xl">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-icaiBlue text-white py-24 border-t-8 border-gold">
-        <div class="container mx-auto px-8 grid md:grid-cols-4 gap-16">
-            <div class="col-span-2">
-                <h2 class="text-4xl font-serif italic mb-8 uppercase tracking-tighter">Urumika</h2>
-                <p class="text-blue-100 text-lg font-light leading-relaxed max-w-lg">
-                    Premier ladies residence managed with the corporate excellence of Vijaya Exports. Your safety is our priority.
-                </p>
+    <footer class="bg-icaiBlue text-white py-24 border-t-8 border-gold text-center">
+        <div class="container mx-auto px-8 flex flex-col items-center">
+            <h2 class="text-4xl font-serif italic mb-10 uppercase tracking-tighter">Urumika</h2>
+            <div class="flex gap-12 text-[11px] font-bold text-blue-200 tracking-[0.5em] uppercase mb-16">
+                <a href="javascript:void(0)" onclick="toggleModal('rules-modal')" class="hover:text-gold transition-all">House Rules</a>
+                <span>|</span>
+                <a href="javascript:void(0)" onclick="toggleModal('terms-modal')" class="hover:text-gold transition-all">Terms</a>
             </div>
-            <div>
-                <h4 class="font-bold text-gold uppercase tracking-[0.3em] text-[10px] mb-8">Navigation</h4>
-                <ul class="space-y-4 text-blue-100 text-sm font-bold uppercase tracking-widest">
-                    <li><a href="#journey" class="hover:text-gold transition">Our Mission</a></li>
-                    <li><a href="#residences" class="hover:text-gold transition">Suites</a></li>
-                    <li><a href="rules.html" class="hover:text-gold transition">House Rules</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-gold uppercase tracking-[0.3em] text-[10px] mb-8">Contact</h4>
-                <ul class="space-y-4 text-blue-100 text-sm font-bold uppercase tracking-widest">
-                    <li><i class="fas fa-phone mr-3"></i> +91 79072 80664</li>
-                    <li><i class="fas fa-envelope mr-3"></i> lijuvijayanind@gmail.com</li>
-                </ul>
-            </div>
-        </div>
-        <div class="mt-16 text-center border-t border-white/5 pt-10">
-            <p class="text-[10px] text-blue-300 tracking-[0.8em] font-bold uppercase italic">© 2025 URUMIKA RESIDENCES. MANAGED BY LIJU VIJAYAN.</p>
+            <p class="text-[11px] text-blue-300 tracking-[0.8em] font-black mb-10 italic">© 2025 URUMIKA RESIDENCES. MANAGED BY LIJU VIJAYAN.</p>
+            <button onclick="toggleGame()" class="text-blue-900 hover:text-gold transition-all"><i class="fas fa-gamepad text-3xl"></i></button>
         </div>
     </footer>
 
@@ -203,52 +233,47 @@
             <i class="fas fa-comment-dots"></i>
         </button>
         <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 bg-white shadow-2xl rounded-2xl border-t-4 border-gold overflow-hidden">
-            <div class="bg-icaiBlue p-4 text-white font-bold flex justify-between">
+            <div class="bg-icaiBlue p-4 text-white font-bold flex justify-between uppercase text-xs tracking-widest">
                 <span>Chat with Liju Vijayan</span>
                 <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
             </div>
             <div class="p-6 text-sm text-slate-600 space-y-4 h-64 overflow-y-auto" id="chat-body">
-                <div class="bg-gray-100 p-3 rounded-lg">Hello! I am Liju, the founder. How can I help you with prices or booking details today?</div>
+                <div class="bg-gray-100 p-3 rounded-lg">Hello! I am Liju, the founder. How can I help you with booking or prices today?</div>
             </div>
             <div class="p-4 border-t flex gap-2">
-                <input type="text" id="chat-input" placeholder="Type a question..." class="w-full text-xs p-2 border rounded outline-none">
+                <input type="text" id="chat-input" placeholder="Type..." class="w-full text-xs p-2 border rounded outline-none">
                 <button onclick="chatSend()" class="text-icaiBlue"><i class="fas fa-paper-plane"></i></button>
             </div>
-            <div class="bg-gray-50 p-2 text-center">
-                <a href="https://wa.me/917907280664" class="text-[10px] font-bold text-teal-600 uppercase tracking-widest"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-            </div>
+            <div class="bg-gray-50 p-2 text-center"><a href="https://wa.me/917907280664" class="text-[10px] font-bold text-teal-600"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div>
         </div>
     </div>
 
-    <div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-icaiBlue/95 backdrop-blur-xl px-4">
+    <div id="booking-modal" class="fixed inset-0 z-[300] hidden flex items-center justify-center bg-icaiBlue/95 backdrop-blur-xl px-4">
         <div class="bg-white w-full max-w-md p-12 shadow-2xl relative text-center border-t-8 border-gold">
-            <button onclick="toggleModal()" class="absolute top-8 right-8 text-gray-400 hover:text-icaiBlue transition text-2xl"><i class="fas fa-times"></i></button>
-            <h3 class="text-4xl font-serif text-icaiBlue mb-2 uppercase">Reserve Now</h3>
-            <p class="text-gold font-bold tracking-[0.3em] uppercase text-[10px] mb-12">Executive Priority Application</p>
+            <button onclick="toggleModal('booking-modal')" class="absolute top-8 right-8 text-gray-400 hover:text-icaiBlue transition text-2xl"><i class="fas fa-times"></i></button>
+            <h3 class="text-3xl font-serif text-icaiBlue mb-12 uppercase">Reserve Suite</h3>
             <form action="mailto:lijuvijayanind@gmail.com" class="space-y-6">
-                <input type="text" placeholder="FULL NAME" class="w-full bg-gray-50 border-2 border-gray-100 p-4 text-xs font-bold tracking-widest outline-none focus:border-icaiBlue transition">
-                <input type="tel" placeholder="MOBILE NUMBER" class="w-full bg-gray-50 border-2 border-gray-100 p-4 text-xs font-bold tracking-widest outline-none focus:border-icaiBlue transition">
-                <button class="w-full bg-icaiBlue text-white font-black py-4 uppercase tracking-[0.4em] text-[10px] shadow-2xl hover:bg-gold transition-colors">Submit Application</button>
+                <input type="text" placeholder="NAME" class="w-full bg-gray-50 border-2 p-4 text-xs font-bold outline-none focus:border-icaiBlue transition">
+                <input type="tel" placeholder="NUMBER" class="w-full bg-gray-50 border-2 p-4 text-xs font-bold outline-none focus:border-icaiBlue transition">
+                <button class="w-full bg-icaiBlue text-white font-black py-4 uppercase text-[10px] tracking-widest shadow-xl hover:bg-gold transition-all">Submit Application</button>
             </form>
         </div>
     </div>
 
     <script>
-        function toggleModal() { document.getElementById('booking-modal').classList.toggle('hidden'); }
+        function toggleMenu() { document.getElementById('mobile-menu')?.classList.toggle('hidden'); }
+        function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
         function toggleChat() { document.getElementById('chatbot-window').classList.toggle('hidden'); }
-        
+        function toggleGame() { /* Placeholder for offline game logic previously discussed */ }
         function chatSend() {
             const input = document.getElementById('chat-input');
             const body = document.getElementById('chat-body');
             if(input.value.trim() === "") return;
-            
-            body.innerHTML += `<div class="text-right"><span class="bg-blue-100 p-2 rounded-lg inline-block">${input.value}</span></div>`;
-            
+            body.innerHTML += `<div class="text-right"><span class="bg-blue-100 p-2 rounded-lg inline-block text-xs">${input.value}</span></div>`;
             setTimeout(() => {
-                body.innerHTML += `<div class="bg-gray-100 p-3 rounded-lg">I've received your query. For the latest prices and direct booking, please click the WhatsApp link below or call me directly at +91 79072 80664.</div>`;
+                body.innerHTML += `<div class="bg-gray-100 p-3 rounded-lg text-xs">For booking queries, please click the WhatsApp link or call me at +91 79072 80664.</div>`;
                 body.scrollTop = body.scrollHeight;
             }, 1000);
-            
             input.value = "";
         }
     </script>
