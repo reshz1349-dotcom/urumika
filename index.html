@@ -35,15 +35,14 @@
                 <span class="text-[9px] font-bold text-gold tracking-[0.4em] uppercase mt-2">Premier Ladies PG/Hostel</span>
             </div>
             <nav class="hidden lg:flex gap-6 text-[10px] font-bold tracking-[0.2em] uppercase items-center text-icaiBlue">
-                <a href="#journey" class="hover:text-gold transition-all">Story</a>
-                <a href="#gallery" class="hover:text-gold transition-all">Gallery</a>
-                <a href="#PG" class="hover:text-gold transition-all">Suites</a>
-                <a href="#reviews" class="hover:text-gold transition-all">Reviews</a>
-                <a href="#blog" class="hover:text-gold transition-all">Blog</a>
-                <a href="#faq" class="hover:text-gold transition-all">FAQ</a>
-                <button onclick="toggleModal('booking-modal')" class="bg-icaiBlue text-white px-6 py-2 rounded-full hover:bg-gold transition-all">Reserve</button>
-            </nav>
-            <button onclick="toggleMenu()" class="lg:hidden text-3xl text-icaiBlue"><i class="fas fa-bars"></i></button>
+    <a href="#journey" class="hover:text-gold transition-all">Story</a>
+    <a href="#gallery" class="hover:text-gold transition-all">Gallery</a>
+    <a href="#Hostel" class="hover:text-gold transition-all">Suites</a>
+    <a href="#reviews" class="hover:text-gold transition-all">Reviews</a>
+    <a href="#faq" class="hover:text-gold transition-all">FAQ</a>
+    <button onclick="toggleModal('booking-modal')" class="bg-icaiBlue text-white px-5 py-2 rounded-full hover:bg-gold transition-all">Reserve</button>
+</nav>
+<button onclick="toggleMenu()" class="lg:hidden text-2xl text-icaiBlue p-2"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
@@ -63,7 +62,7 @@
         </div>
         <div class="container mx-auto px-8 relative z-10 text-white">
             <span class="text-gold font-bold tracking-[0.5em] uppercase text-xs mb-6 block">Infopark, Kakkanad, Kochi • Link Valley</span>
-            <h1 class="text-6xl md:text-8xl font-serif mb-8 leading-tight">URUMIKA <br><span class="italic text-gold">Ladies Hostel.</span></h1>
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-serif mb-8 leading-tight">URUMIKA <br><span class="italic text-gold">Ladies Hostel.</span></h1>
             <p class="max-w-2xl text-blue-50 text-xl md:text-2xl font-light mb-12">
                 A premier PG for working women and students. Just 1.5km from Infopark and SmartCity, offering the corporate safety and comfort of a second home.
             </p>
@@ -76,7 +75,7 @@
 
     <section id="founder" class="py-32 bg-white">
         <div class="container mx-auto px-8">
-            <div class="grid lg:grid-cols-12 gap-20 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto text-left">
                 <div class="lg:col-span-5 relative">
                     <img src="founder.jpg" class="relative z-10 w-full shadow-2xl rounded-xl aspect-[3/4] object-cover" alt="Liju Vijayan">
                     <div class="absolute top-0 right-0 bg-icaiBlue text-white px-5 py-20 v-badge-vertical font-black tracking-[0.6em] text-[10px] z-20">
@@ -200,8 +199,15 @@
                         </div>
                     </div>
                     <div class="h-80 shadow-2xl border-8 border-white overflow-hidden">
-                        <<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.029629762017!2d76.35640407573044!3d10.014411172785172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080ddd337592ed%3A0x598a696cc9456ce1!2sURUMIKA%20PG%20LADIES%20HOSTEL!5e0!3m2!1sen!2sin!4v1766543934627!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                        <div class="h-80 md:h-[500px] shadow-2xl border-8 border-white overflow-hidden rounded-2xl">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.123456789!2d76.3456789!3d10.0123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDAwJzQ0LjQiTiA3NsKwMjAnNDQuNCJF!5e0!3m2!1sen!2sin!4v1234567890" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+    </iframe>
+</div>
                 </div>
                 <div class="bg-white p-12 shadow-2xl rounded-3xl border-t-8 border-gold">
                     <form action="mailto:lijuvijayanind@gmail.com" class="space-y-6">
@@ -232,7 +238,7 @@
         <button onclick="toggleChat()" class="bg-icaiBlue text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform">
             <i class="fas fa-comment-dots"></i>
         </button>
-        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 bg-white shadow-2xl rounded-2xl border-t-4 border-gold overflow-hidden">
+        <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-[280px] md:w-80 bg-white shadow-2xl rounded-2xl border-t-4 border-gold overflow-hidden">
             <div class="bg-icaiBlue p-4 text-white font-bold flex justify-between uppercase text-xs tracking-widest">
                 <span>Chat with Liju Vijayan</span>
                 <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
@@ -279,5 +285,6 @@
     </script>
 </body>
 </html>
+
 
 
