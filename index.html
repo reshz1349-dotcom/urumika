@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urumika Residences | Premium Housing Kochi</title>
+    <title>URUMIKA | Premier Ladies Residence Kakkanad</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    fontFamily: { 
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
                     colors: {
-                        teal: { 500: '#00B5B5', 600: '#009E9E' }, /* Stanza-like Teal */
+                        teal: { 500: '#00B5B5', 600: '#009E9E' },
                         brand: { dark: '#1C1C1C', yellow: '#FFD700' }
                     }
                 }
@@ -26,12 +29,15 @@
 
     <header class="sticky top-0 z-50 bg-white shadow-sm h-16 md:h-20 flex items-center">
         <div class="container mx-auto px-4 flex justify-between items-center w-full">
-            <a href="index.html" class="text-2xl font-bold text-teal-500 tracking-tighter">URUMIKA<span class="text-brand-dark">  | Secure Living for Women</span></a>
+            <div class="flex flex-col">
+                <a href="index.html" class="text-2xl font-bold text-teal-500 tracking-tighter leading-none">URUMIKA</a>
+                <span class="text-[10px] font-bold text-gray-400 tracking-[0.1em] uppercase mt-1">Secure Living for Women</span>
+            </div>
             
             <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-600 items-center">
                 <a href="#journey" class="hover:text-teal-500 transition">Our Story</a>
+                <a href="#residences" class="hover:text-teal-500 transition">Residences</a>
                 <a href="rules.html" class="hover:text-teal-500 transition">House Rules</a>
-                <a href="terms.html" class="hover:text-teal-500 transition">Terms</a>
                 <button onclick="toggleModal()" class="bg-teal-500 text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition shadow-lg">Reserve Now</button>
             </nav>
 
@@ -39,9 +45,9 @@
         </div>
         
         <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white border-t p-4 shadow-lg md:hidden">
-            <a href="#journey" class="block py-3 border-b border-gray-100 text-gray-600">Our Story</a>
+            <a href="#journey" class="block py-3 border-b border-gray-100 text-gray-600" onclick="toggleMenu()">Our Story</a>
+            <a href="#residences" class="block py-3 border-b border-gray-100 text-gray-600" onclick="toggleMenu()">Residences</a>
             <a href="rules.html" class="block py-3 border-b border-gray-100 text-gray-600">House Rules</a>
-            <a href="terms.html" class="block py-3 border-b border-gray-100 text-gray-600">Terms & Conditions</a>
             <button onclick="toggleModal()" class="w-full mt-4 bg-teal-500 text-white py-3 rounded-lg font-bold">Reserve Now</button>
         </div>
     </header>
@@ -55,257 +61,166 @@
         <div class="relative z-10 max-w-3xl">
             <span class="bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded uppercase mb-4 inline-block tracking-wide">Premium Ladies Housing</span>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Your Second Home in <span class="text-teal-400">Kakkanad</span></h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-xl mx-auto">Managed by professionals who understand that a hostel isn't just a bed, it's a feeling.</p>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-xl mx-auto">Managed by professionals who understand that a hostel isn't just a bed, it's a feeling. [cite: 684]</p>
             
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
                 <button onclick="toggleModal()" class="bg-teal-500 px-8 py-3 rounded-lg font-bold hover:bg-teal-600 transition shadow-lg shadow-teal-500/30">Book a Visit</button>
-                <a href="tel:07907280664" class="bg-white text-brand-dark px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">Call Founder</a>
+                <a href="tel:+917907280664" class="bg-white text-teal-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition flex items-center gap-2">
+                    <i class="fas fa-phone-alt"></i> Call Founder
+                </a>
             </div>
 
-            <div class="grid grid-cols-3 gap-4 mt-12 border-t border-white/20 pt-6">
-                <div>
-                    <p class="text-2xl font-bold text-teal-400">5.0</p>
-                    <p class="text-xs text-gray-300">Google Rating</p>
-                </div>
-                <div>
-                    <p class="text-2xl font-bold text-teal-400">1.5km</p>
-                    <p class="text-xs text-gray-300">To Infopark</p>
-                </div>
-                <div>
-                    <p class="text-2xl font-bold text-teal-400">24/7</p>
-                    <p class="text-xs text-gray-300">Security</p>
-                </div>
+            <div class="grid grid-cols-3 gap-4 mt-12 border-t border-white/20 pt-6 text-center">
+                <div><p class="text-2xl font-bold text-teal-400">5.0</p><p class="text-xs text-gray-300 uppercase">Rating</p></div>
+                <div><p class="text-2xl font-bold text-teal-400">1.5km</p><p class="text-xs text-gray-300 uppercase">To Infopark</p></div>
+                <div><p class="text-2xl font-bold text-teal-400">24/7</p><p class="text-xs text-gray-300 uppercase">Security</p></div>
             </div>
         </div>
     </section>
 
     <section id="journey" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-brand-dark">The Urumika Journey</h2>
-                <div class="h-1 w-20 bg-teal-500 mx-auto mt-4 rounded"></div>
-            </div>
-            
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">The Urumika Journey</h2>
+            <p class="text-gray-500 mb-16 italic text-sm">"We didn't find it for us, so we created it for you." [cite: 680]</p>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-8 bg-gray-50 rounded-2xl hover:-translate-y-2 transition duration-300 shadow-sm hover:shadow-xl">
-                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-teal-500 text-2xl mb-6 shadow">
-                        <i class="fas fa-question"></i>
-                    </div>
+                <div class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl transition">
+                    <i class="fas fa-question text-teal-500 text-3xl mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">The Why</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        We realized that working women in Kochi needed more than just a room. They needed safety, flexibility, and a place that feels like home without the strict curfew hassles.
-                    </p>
+                    <p class="text-gray-600 text-sm">Working women in Kochi need more than just a room. They need safety, flexibility, and home comfort. [cite: 683, 684]</p>
                 </div>
-
-                <div class="p-8 bg-gray-50 rounded-2xl hover:-translate-y-2 transition duration-300 shadow-sm hover:shadow-xl">
-                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-teal-500 text-2xl mb-6 shadow">
-                        <i class="fas fa-home"></i>
-                    </div>
+                <div class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl transition">
+                    <i class="fas fa-home text-teal-500 text-3xl mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">The What</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        A premium residence in Link Valley offering clean rooms, homely food, and amenities like high-speed Wi-Fi and self-cleaning kitchens designed for the modern professional.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">A premium residence in Link Valley offering clean, spacious rooms with single, double, and triple sharing options.</p>
                 </div>
-
-                <div class="p-8 bg-gray-50 rounded-2xl hover:-translate-y-2 transition duration-300 shadow-sm hover:shadow-xl">
-                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-teal-500 text-2xl mb-6 shadow">
-                        <i class="fas fa-heart"></i>
-                    </div>
+                <div class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl transition">
+                    <i class="fas fa-heart text-teal-500 text-3xl mb-4"></i>
                     <h3 class="text-xl font-bold mb-3">The How</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Managed personally by Liju Vijayan with an "understanding and caring" approach. We prioritize your peace of mind above all else.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Managed personally by Liju Vijayan with a "caring" approach. We prioritize your peace of mind above all else.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-brand-dark text-white">
+    <section id="residences" class="py-20 bg-brand-dark text-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Live Availability</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="bg-gray-800 rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-teal-900/50 transition">
-                    <div class="h-56 relative overflow-hidden">
-                        <img src="room-view-1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded">AVAILABLE</span>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="bg-gray-800 rounded-2xl overflow-hidden group transition">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="room-view-1.jpg" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded uppercase">Available</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-1">Double Sharing</h3>
                         <p class="text-gray-400 text-sm mb-4">Spacious • Attached Bath</p>
                         <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-xl font-bold">₹7,500<span class="text-xs font-normal text-gray-400">/mo</span></span>
-                            <button onclick="toggleModal()" class="text-teal-400 text-sm font-bold hover:text-white transition">Book Now &rarr;</button>
+                            <span class="text-xl font-bold">₹7,500/mo</span>
+                            <button onclick="toggleModal()" class="text-teal-400 font-bold">Book Now →</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-gray-800 rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-teal-900/50 transition">
-                    <div class="h-56 relative overflow-hidden">
-                        <img src="room-view-2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded">1 SPOT LEFT</span>
+                <div class="bg-gray-800 rounded-2xl overflow-hidden group transition">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="room-view-2.jpg" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded uppercase">1 Spot Left</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-1">Triple Sharing</h3>
                         <p class="text-gray-400 text-sm mb-4">Economical • Social</p>
                         <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-xl font-bold">₹6,500<span class="text-xs font-normal text-gray-400">/mo</span></span>
-                            <button onclick="toggleModal()" class="text-teal-400 text-sm font-bold hover:text-white transition">Book Now &rarr;</button>
+                            <span class="text-xl font-bold">₹6,500/mo</span>
+                            <button onclick="toggleModal()" class="text-teal-400 font-bold">Book Now →</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-white text-brand-dark rounded-2xl p-8 flex flex-col justify-center text-center">
-                    <img src="founder.jpg" class="w-24 h-24 rounded-full mx-auto border-4 border-teal-500 object-cover mb-4 shadow-lg">
+                <div class="bg-white text-brand-dark rounded-2xl p-8 text-center flex flex-col items-center">
+                    <img src="founder.jpg" class="w-24 h-24 rounded-full border-4 border-teal-500 mb-4 shadow-lg object-cover">
                     <h3 class="text-xl font-bold">Liju Vijayan</h3>
-                    <p class="text-teal-600 font-medium text-sm mb-4">Founder</p>
-                    <p class="text-gray-500 text-sm mb-6 italic">"My goal is to create a secure, hassle-free environment for you."</p>
-                    <a href="https://wa.me/917907280664" class="bg-teal-500 text-white w-full py-3 rounded-lg font-bold hover:bg-teal-600 transition flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    <p class="text-teal-600 font-medium text-sm mb-2">Founder & Manager</p>
+                    <p class="text-xs text-gray-400 italic mb-4">Cheliparambil House, Thevakkal</p>
+                    <p class="text-gray-500 text-sm mb-6">"Reach out to me directly for a secure, hassle-free environment."</p>
+                    <a href="https://wa.me/917907280664" class="bg-teal-500 text-white w-full py-3 rounded-lg font-bold flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Founder
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
-<section id="location" class="py-16 md:py-24 bg-gray-50">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900">Find Us in Kakkanad</h2>
-            <p class="text-gray-500 mt-2">Strategically located for Infopark and SmartCity professionals.</p>
-        </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-            <div class="lg:col-span-1 space-y-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-teal-500">
-                    <h3 class="font-bold text-lg mb-4 text-brand-dark"><i class="fas fa-route text-teal-500 mr-2"></i>Navigation Guide</h3>
-                    <ul class="space-y-4 text-sm text-gray-600">
-                        <li>
-                            <strong>Prime Location:</strong> Strategically located in Link Valley, just minutes away from Infopark and SmartCity.
-                        </li>
-                        <li>
-                            <strong>Landmark:</strong> We are situated near Kusumagiri Hospital, making it easy for visitors to find the way.
-                        </li>
-                        <li>
-                            <strong>Proximity:</strong> Only 1.5km from Infopark Phase 1, ideal for a walkable commute.
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="bg-teal-500 p-6 rounded-2xl text-white shadow-lg">
-                    <h3 class="font-bold mb-2 italic">Liju Vijayan</h3>
-                    <p class="text-sm opacity-90 mb-4">Cheliparambil House, Thevakkal, Thrikkakkara, Ernakulam, Kerala 682021</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=URUMIKA+PG+LADIES+HOSTEL+Kakkanad" 
-                       target="_blank" 
-                       class="inline-block bg-white text-teal-500 px-6 py-2 rounded-lg font-bold text-sm">
-                       Get Direct Directions
-                    </a>
-                </div>
-            </div>
-
-            <div class="lg:col-span-2 h-[450px] rounded-3xl overflow-hidden shadow-2xl">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.029304902251!2d76.35888109999999!3d10.014438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080ddd337592ed%3A0x598a696cc9456ce1!2sURUMIKA%20PG%20LADIES%20HOSTEL!5e0!3m2!1sen!2sin!4v1766538551893!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </div>
-</section>
-    <section id="location" class="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
-            
-            <div class="lg:col-span-1 space-y-6 flex flex-col justify-center">
-                <div class="inline-block bg-teal-50 text-teal-600 text-xs font-bold px-3 py-1 rounded-full w-fit mb-2">
-                    LOCATED IN KAKKANAD
-                </div>
-                <h2 class="text-3xl font-bold text-gray-900 leading-tight">Find Your Way <br> to Urumika</h2>
-                
-                <div class="space-y-6 pt-4">
-                    <div class="flex gap-4">
-                        <div class="text-teal-500 mt-1"><i class="fas fa-map-pin text-xl"></i></div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Prime Connectivity</h4>
-                            <p class="text-sm text-gray-500">Strategically located in Link Valley, just 1.5km from Infopark Phase 1 and SmartCity[cite: 37, 38].</p>
+    <section id="location" class="py-20 bg-gray-50 border-t border-gray-100">
+        <div class="container mx-auto px-4 md:px-8 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="inline-block bg-teal-50 text-teal-600 text-xs font-bold px-3 py-1 rounded-full">Kakkanad, Kochi</div>
+                    <h2 class="text-3xl font-bold text-gray-900 leading-tight">Visit Our <br> Link Valley Home</h2>
+                    <div class="space-y-6 pt-4 text-left">
+                        <div class="flex gap-4">
+                            <i class="fas fa-map-pin text-teal-500 text-xl mt-1"></i>
+                            <div><h4 class="font-bold">Prime Location</h4><p class="text-sm text-gray-500">1.5km from Infopark Phase 1 and SmartCity.</p></div>
                         </div>
-                    </div>
-                    
-                    <div class="flex gap-4">
-                        <div class="text-teal-500 mt-1"><i class="fas fa-hospital text-xl"></i></div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Major Landmark</h4>
-                            <p class="text-sm text-gray-500">Located near Kusumagiri Hospital, a well-known point for easy navigation[cite: 37, 38].</p>
+                        <div class="flex gap-4">
+                            <i class="fas fa-hospital text-teal-500 text-xl mt-1"></i>
+                            <div><h4 class="font-bold">Landmark</h4><p class="text-sm text-gray-500">Situated near Kusumagiri Hospital.</p></div>
+                        </div>
+                        <div class="pt-6">
+                            <a href="https://maps.google.com/?q=Cheliparambil+House+Thevakkal+Thrikkakkara" target="_blank" class="bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-black transition shadow-xl inline-flex items-center gap-2">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <div class="pt-6">
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=URUMIKA+PG+LADIES+HOSTEL+Kakkanad" 
-                       target="_blank" 
-                       class="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-black transition shadow-xl">
-                        <i class="fas fa-directions"></i> Get Directions on Maps
-                    </a>
+                <div class="lg:col-span-2 h-[450px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1352425026425!2d76.3477!3d10.005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d35337592ed%3A0x59696925c9416c21!2sURUMIKA%20PG%20LADIES%20HOSTEL!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-
-            <div class="lg:col-span-2 h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1352425026425!2d76.3477!3d10.005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d35337592ed%3A0x59696925c9416c21!2sURUMIKA%20PG%20LADIES%20HOSTEL!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8 mb-12">
-            <div class="col-span-1 md:col-span-2">
-                <h2 class="text-2xl font-bold text-teal-500 mb-4">URUMIKA  | Secure Living for Women</h2>
-                <p class="text-gray-400 text-sm max-w-sm">
-                    Premier ladies hostel in Kakkanad. Strategically located in Link Valley, offering a safe, homely environment managed by professionals.
-                </p>
+        <div class="container mx-auto px-4 grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <h2 class="text-2xl font-bold text-teal-500 mb-4 tracking-tighter uppercase leading-none italic">Urumika</h2>
+                <p class="text-gray-400 text-sm max-w-sm">Premier ladies hostel in Kakkanad. Managed with the "caring and understanding" approach you deserve.</p>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Quick Links</h4>
+                <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-teal-500">Quick Links</h4>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="index.html" class="hover:text-teal-500">Home</a></li>
-                    <li><a href="rules.html" class="hover:text-teal-500">House Rules</a></li>
-                    <li><a href="terms.html" class="hover:text-teal-500">Terms & Conditions</a></li>
+                    <li><a href="rules.html" class="hover:text-teal-500">House Rules [cite: 53]</a></li>
+                    <li><a href="terms.html" class="hover:text-teal-500">Terms & Conditions [cite: 54]</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Contact</h4>
+                <h4 class="font-bold mb-4 uppercase text-xs tracking-widest text-teal-500">Contact</h4>
                 <ul class="space-y-2 text-sm text-gray-400">
                     <li><i class="fas fa-phone mr-2 text-teal-500"></i> +91 79072 80664</li>
                     <li><i class="fas fa-envelope mr-2 text-teal-500"></i> lijuvijayanind@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt mr-2 text-teal-500"></i> Kakkanad, Kochi</li>
                 </ul>
             </div>
         </div>
-        <div class="text-center text-xs text-gray-600 border-t border-gray-800 pt-8">
-            &copy; 2025 Urumika PG Ladies Hostel. All Rights Reserved.
+        <div class="text-center text-[10px] text-gray-600 border-t border-gray-800 mt-12 pt-8 uppercase tracking-widest italic">
+            © 2025 Urumika Residences. Images shown are for representational purposes only. [cite: 62]
         </div>
     </footer>
 
-    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm transition-opacity">
-        <div class="bg-white w-full max-w-md p-8 rounded-2xl shadow-2xl relative">
-            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black"><i class="fas fa-times text-xl"></i></button>
-            <h3 class="text-2xl font-bold mb-2 text-brand-dark">Reserve Your Spot</h3>
-            <p class="text-sm text-gray-500 mb-6">Pay a nominal fee to unlock exclusive discounts for your first month.</p>
+    <div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white w-full max-w-md p-8 rounded-3xl shadow-2xl relative">
+            <button onclick="toggleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="text-2xl font-bold mb-4 text-brand-dark">Reserve Now</h3>
+            <p class="text-sm text-gray-500 mb-8 leading-relaxed">
+                By selecting 'Reserve Now' you may unlock assured discounts on payment of a refundable nominal Fee. 
+            </p>
             <form action="mailto:lijuvijayanind@gmail.com" class="space-y-4">
-                <input type="text" placeholder="Full Name" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg text-sm focus:outline-none focus:border-teal-500">
-                <input type="tel" placeholder="Mobile Number" class="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg text-sm focus:outline-none focus:border-teal-500">
-                <select class="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg text-sm focus:outline-none focus:border-teal-500 text-gray-600">
-                    <option>Select Room Type</option>
+                <input type="text" placeholder="Full Name" class="w-full bg-gray-50 border p-4 rounded-xl text-sm focus:outline-none focus:border-teal-500 transition border-gray-100">
+                <input type="tel" placeholder="Mobile Number" class="w-full bg-gray-50 border p-4 rounded-xl text-sm focus:outline-none focus:border-teal-500 transition border-gray-100">
+                <select class="w-full bg-gray-50 border p-4 rounded-xl text-sm outline-none border-gray-100 text-gray-500">
                     <option>Double Sharing</option>
                     <option>Triple Sharing</option>
                 </select>
-                <div class="text-xs text-gray-400 mt-2">
-                    By clicking submit, you agree to our <a href="terms.html" class="text-teal-500 underline">Terms & Conditions</a>.
+                <div class="text-[10px] text-gray-400 mt-2 uppercase tracking-wide">
+                    By submitting, you agree to our <a href="terms.html" class="text-teal-500 underline font-bold">Terms of Use</a>. [cite: 93]
                 </div>
-                <button class="w-full bg-teal-500 text-white font-bold py-3 rounded-lg hover:bg-teal-600 transition shadow-lg shadow-teal-500/30">Proceed to Pay</button>
+                <button class="w-full bg-teal-500 text-white font-bold py-4 rounded-xl hover:bg-teal-600 transition shadow-lg shadow-teal-500/30 uppercase tracking-widest text-xs">Unlock Discount</button>
             </form>
         </div>
     </div>
@@ -316,6 +231,3 @@
     </script>
 </body>
 </html>
-
-
-
