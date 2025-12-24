@@ -256,7 +256,25 @@ This flow mirrors the premium user experience found on professional sites like S
             </div>
         </div>
     </section>
-
+<section id="fun-zone" class="hidden py-16 bg-brand-dark text-white text-center">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-4 font-serif italic text-teal-400">Internet Down? No Problem!</h2>
+        <p class="text-gray-400 mb-8 text-sm uppercase tracking-widest">Enjoy a quick break at Urumika</p>
+        
+        <div class="relative inline-block border-8 border-gray-800 rounded-3xl overflow-hidden shadow-2xl bg-black">
+            <canvas id="gameCanvas" width="480" height="320" class="max-w-full h-auto cursor-none"></canvas>
+            <div id="gameOverlay" class="absolute inset-0 flex items-center justify-center bg-black/60">
+                <button onclick="startGame()" class="bg-teal-500 text-white px-8 py-3 rounded-full font-bold hover:bg-teal-600 transition shadow-xl">
+                    START BREAKOUT
+                </button>
+            </div>
+        </div>
+        
+        <div class="mt-6">
+            <button onclick="toggleGame()" class="text-gray-500 hover:text-white transition text-xs uppercase underline">Close Fun Zone</button>
+        </div>
+    </div>
+</section>
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4 grid md:grid-cols-4 gap-12">
             <div class="col-span-2">
@@ -281,6 +299,9 @@ This flow mirrors the premium user experience found on professional sites like S
         <div class="text-center text-[10px text-gray-600 border-t border-gray-800 mt-12 pt-8 uppercase tracking-widest italic italic">
             © 2025 Urumika Residences. Managed by Liju Vijayan.
         </div>
+        <button onclick="toggleGame()" class="text-gray-800 hover:text-teal-500 transition ml-4" title="Offline Mode">
+    <i class="fas fa-gamepad"></i>
+</button>
     </footer>
 
     <div id="booking-modal" class="fixed inset-0 z-[100 hidden flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm transition-opacity">
@@ -304,8 +325,148 @@ This flow mirrors the premium user experience found on professional sites like S
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
         function toggleModal() { document.getElementById('booking-modal').classList.toggle('hidden'); }
     </script>
+    function toggleGame() {
+    document.getElementById('fun-zone').classList.toggle('hidden');
+}
+
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+let x = canvas.width / 2;
+let y = canvas.height - 30;
+let dx = 2;
+let dy = -2;
+const ballRadius = 10;
+const paddleHeight = 10;
+const paddleWidth = 75;
+let paddleX = (canvas.width - paddleWidth) / 2;
+let rightPressed = false;
+let leftPressed = false;
+let gameRunning = false;
+
+// Bricks
+const brickRowCount = 3;
+const brickColumnCount = 5;
+const brickWidth = 75;
+const brickHeight = 20;
+const brickPadding = 10;
+const brickOffsetTop = 30;
+const brickOffsetLeft = 30;
+let bricks = [];
+
+function initBricks() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        bricks[c] = [];
+        for (let r = 0; r < brickRowCount; r++) {
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
+        }
+    }
+}
+
+function startGame() {
+    document.getElementById('gameOverlay').classList.add('hidden');
+    initBricks();
+    gameRunning = true;
+    draw();
+}
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function mouseMoveHandler(e) {
+    const relativeX = e.clientX - canvas.offsetLeft;
+    if (relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth / 2;
+    }
+}
+
+function keyDownHandler(e) {
+    if (e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
+    else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
+}
+
+function keyUpHandler(e) {
+    if (e.key === "Right" || e.key === "ArrowRight") rightPressed = false;
+    else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
+}
+
+function collisionDetection() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            const b = bricks[c][r];
+            if (b.status === 1) {
+                if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                    dy = -dy;
+                    b.status = 0;
+                }
+            }
+        }
+    }
+}
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = "#00B5B5"; // Teal Ball
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawBricks() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            if (bricks[c][r].status === 1) {
+                const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+                const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                ctx.fillStyle = "#FFD700"; // Yellow Bricks
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+
+function draw() {
+    if (!gameRunning) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    collisionDetection();
+
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) dx = -dx;
+    if (y + dy < ballRadius) dy = -dy;
+    else if (y + dy > canvas.height - ballRadius) {
+        if (x > paddleX && x < paddleX + paddleWidth) dy = -dy;
+        else {
+            gameRunning = false;
+            document.getElementById('gameOverlay').classList.remove('hidden');
+            x = canvas.width / 2; y = canvas.height - 30; dx = 2; dy = -2;
+        }
+    }
+
+    if (rightPressed && paddleX < canvas.width - paddleWidth) paddleX += 7;
+    else if (leftPressed && paddleX > 0) paddleX -= 7;
+
+    x += dx;
+    y += dy;
+    requestAnimationFrame(draw);
+}
 </body>
 </html>
+
 
 
 
